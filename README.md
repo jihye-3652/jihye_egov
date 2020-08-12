@@ -1,17 +1,21 @@
 ## 전자정부 표준프레임워크 커스터마이징 
 
 ***
-### 파스타 클라우드 활용(공통)
-1. 스프링프로젝트 kimilguk_mysql 변경.
-2. 이클립스에서 kimilguk_mysql 프로젝트를 파스타에 배포.(Hsql용)
-3. kimilguk_mysql 로컬 mysql서버와 연동처리.
-4. 파스타 클라우드에서 Mysql서비스 생성.(원격접속이름과 암호를 확인가능)
-5. 원격 phpmyadmin 툴(워크벤치와 비슷)을 파스타 클라우드에 PHP앱 생성 후 배포.
-6. kimilguk_mysql 프로젝트를 클라우드용 DB사용으로 변경 후 파스타에 재배포.
-   http://kimilguk_mysql.paas-ta.org 
-7. egov_sht 프로젝트 이름 변경: kimilguk_egov 파스타에 배포(Mysql클라우드사용).
-   http://kimilguk_egov.paas-ta.org
+### 커스터 마이징 후 파스타 클라우드 활용예정(공통)
+1. 스프링프로젝트 kimilguk_egov 변경 -> kimilguk-egov.
+2. 이클립스에서 kimilguk-egov 프로젝트를 파스타에 배포.(Mysql용)
+3. kimilguk-egov 프로젝트용 클라우드 DB생성: 서비스명은 egov-mysql-db.
+4. 파스타 클라우드에서 egov-mysql-db의 원격접속이름과 암호를 확인.
+5. 이미 생성된 phpmyadmin 애플리케이션명: kimilguk-myadmin 실행.
+6. http://kimilguk-myadmin.paas-ta.org 접속후 전자정부 프로젝트용 더미데이터 인서트.
+7. http://kimilguk-egov.paas-ta.org 사이트에서 파스타 배포결과 확인. 
 ***
+
+### 20200912(수) 작업내역(아래)
+- 4). Junit 테스트로 CRUD 확인.
+- 3). Service 클래스에서 insertMember, updateMember, deleteMember 매서드 생성
+- 2). DAO 클래스에서 insertMember, updateMember, deleteMember 매서드 생성
+- 1). 쿼리 생성 : src/main/resources/egovframework/mapper/com/member/member_mysql.xml\
 
 ### 20200811(화) 작업내역(아래)
 - Junit 테스터로 DAO의 selectMember 실행 하기.
