@@ -3,6 +3,7 @@ package jihye_egov;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.UUID;
 
 import javax.inject.Inject;
 import javax.sql.DataSource;
@@ -31,12 +32,60 @@ public class TestMember {
 	private MemberDAO dao;
 	
 	@Test
+	public void testDeleteMember() throws Exception {
+		dao.deleteMember("user_2");
+	}
+	
+	@Test
+	public void testInsertMember() throws Exception {
+		EmployerInfoVO vo = new EmployerInfoVO();
+		int uid = (int) (Math.random()*100);//랜덤문자 구하기
+		vo.setEMPLYR_ID("user_" + uid);
+		vo.setESNTL_ID("test");
+	    vo.setPASSWORD("JfQ7FIatlaE5jj7rPYO8QBABX8yb7bNbQy4AKY1QIfc=");
+	    vo.setPASSWORD_HINT("");
+	    vo.setPASSWORD_CNSR("");
+	    vo.setUSER_NM("사용자");
+	    vo.setZIP("000-00");
+	    vo.setHOUSE_ADRES("사용자주소");
+	    vo.setEMAIL_ADRES("aaa@aaa.com");
+	    vo.setGROUP_ID("GROUP_00000000000001");
+	    vo.setORGNZT_ID("");
+	    vo.setEMPLYR_STTUS_CODE("P");
+	    dao.insertMember(vo);
+	}
+	
+	@Test
+	public void testUpdateMember() throws Exception {
+		EmployerInfoVO vo = new EmployerInfoVO();
+		vo.setEMPLYR_ID("admin");
+		vo.setESNTL_ID("test");
+	    vo.setPASSWORD("JfQ7FIatlaE5jj7rPYO8QBABX8yb7bNbQy4AKY1QIfc=");
+	    vo.setPASSWORD_HINT("");
+	    vo.setPASSWORD_CNSR("");
+	    vo.setUSER_NM("관리자");
+	    vo.setZIP("000-00");
+	    vo.setHOUSE_ADRES("관리자주소");
+	    vo.setEMAIL_ADRES("aaa@aaa.com");
+	    vo.setGROUP_ID("GROUP_00000000000000");
+	    vo.setORGNZT_ID("");
+	    vo.setEMPLYR_STTUS_CODE("P");
+	    dao.updateMember(vo);
+	}
+	
+	@Test
 	public void testSelectMember() throws Exception {
 		List<EmployerInfoVO> list = dao.selectMember();
 		for(EmployerInfoVO vo:list) {
-			System.out.print("회원아이디: " + vo.getEmplyr_id());
-			System.out.println(" / 회원이름: " + vo.getUser_nm());
+			System.out.print("회원아이디: " + vo.getEMPLYR_ID());
+			System.out.println(" / 회원이름: " + vo.getUSER_NM());
 		}
+	}
+	
+	@Test
+	public void testViewMember() throws Exception {
+		EmployerInfoVO vo = dao.viewMember("admin");
+		System.out.println("====admin에 상세정보 " + vo.toString());
 	}
 	
 	@Test

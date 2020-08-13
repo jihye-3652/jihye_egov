@@ -4,7 +4,7 @@
 	<select id="selectMember" resultType="edu.human.com.member.service.EmployerInfoVO">
 		SELECT * FROM lettnemplyrinfo
 	</select>
-	<insert id="insertmember">
+	<insert id="insertMember">
 		insert into lettnemplyrinfo (
 			ESNTL_ID,
 			EMPLYR_ID,
@@ -46,7 +46,7 @@
 		    EMAIL_ADRES = #{EMAIL_ADRES},
 		    GROUP_ID = #{GROUP_ID},
 		    ORGNZT_ID = #{ORGNZT_ID},
-		    EMPLYR_STTUS_CODE = #{EMPLYR_STTUS}
+		    EMPLYR_STTUS_CODE = #{EMPLYR_STTUS_CODE}
 		WHERE
     		EMPLYR_ID = #{EMPLYR_ID}
 	</update>
@@ -55,5 +55,8 @@
 		WHERE 
 			EMPLYR_ID = #{EMPLYR_ID}
 	</delete>	
+	<select id="viewMember" resultType="edu.human.com.member.service.EmployerInfoVO">
+		select * from lettnemplyrinfo where = EMPLYR_ID = #{EMPLYR_ID}
+	</select>
 				 	
 </mapper>

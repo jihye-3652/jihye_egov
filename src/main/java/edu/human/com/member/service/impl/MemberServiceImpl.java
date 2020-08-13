@@ -20,4 +20,27 @@ public class MemberServiceImpl implements MemberService {
 		return memberDAO.selectMember();
 	}
 
+	@Override
+	public void insertMember(EmployerInfoVO vo) throws Exception {
+		memberDAO.insertMember(vo);
+		
+	}
+
+	@Override
+	public void updateMember(EmployerInfoVO vo) throws Exception {
+		memberDAO.updateMember(vo);
+		
+	}
+
+	@Override
+	public void deleteMember(String emplyr_id) throws Exception {
+		memberDAO.deleteMember(emplyr_id);
+		
+	}
+
+	@Override
+	public EmployerInfoVO viewMember(String emplyr_id) throws Exception {
+		return memberDAO.viewMember(emplyr_id);
+	}
+
 }

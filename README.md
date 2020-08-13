@@ -11,11 +11,37 @@
 7. http://kimilguk-egov.paas-ta.org 사이트에서 파스타 배포결과 확인. 
 ***
 
-### 20200912(수) 작업내역(아래)
+### 20200814(금) 작업예정(아래)
+- 3). 로컬PC에서 결과 확인 후 파스타에 배포예정.
+- 2). 멤버 뷰페이지, 업데이트페이지, 인서트 페이지 생성.
+- 1). 컨트롤러에 멤버리스트페이지 경로추가(아래)
+- edu.human.com.member.web 패키지생성(컨트롤러용 패키지)
+- MemberController.java @Controller클래스 생성.
+- com/member/selectMember.do 경로추가(아래)
+
+```
+/**
+ 관리자관리 목록을 조회한다.
+*/
+@RequestMapping("/com/member/selectMember.do")
+public List<EmployerInfoVO> selectMember(Model model) throws Exception {
+	model.addAttribute("resultList", 멤버서비스호출);
+	return "com/member/list";
+}
+```
+
+### 20200812-13(수-목) 작업내역(아래)
+- 6). jsp폴더(뷰폴더)에 inc/EgovIncLeftmenu.jsp 파일수정
+
+```
+메뉴 내용 추가(아래)
+<li class="dept02"><a href="javascript:fn_main_headPageAction('57','com/member/selectMember.do')">관리자관리</a></li>
+```
+- 5). viewMember 쿼리+DAO+Service매서드 추가 후 Junit테스트OK.
 - 4). Junit 테스트로 CRUD 확인.
 - 3). Service 클래스에서 insertMember, updateMember, deleteMember 매서드 생성
 - 2). DAO 클래스에서 insertMember, updateMember, deleteMember 매서드 생성
-- 1). 쿼리 생성 : src/main/resources/egovframework/mapper/com/member/member_mysql.xml\
+- 1). 쿼리 생성 : src/main/resources/egovframework/mapper/com/member/member_mysql.xml
 
 ### 20200811(화) 작업내역(아래)
 - Junit 테스터로 DAO의 selectMember 실행 하기.

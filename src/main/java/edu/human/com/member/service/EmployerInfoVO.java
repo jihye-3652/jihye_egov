@@ -3,195 +3,214 @@ package edu.human.com.member.service;
 import java.util.Date;
 
 public class EmployerInfoVO {
-	 private String emplyr_id;
-	 private String orgnzt_id;
-	 private String user_nm;
-	 private String password;
-	 private String empl_no;
-	 private String ihidnum;
-	 private String sexdstn_code;
-	 private String brthdy;
-	 private String fxnum;
-	 private String house_adres;
-	 private String password_hint;
-	 private String password_cnsr;
-	 private String house_end_telno;
-	 private String area_no;
-	 private String detail_adres;
-	 private String zip;
-	 private String offm_telno;
-	 private String mbtlnum;
-	 private String email_adres;
-	 private String ofcps_nm;
-	 private String house_middle_telno;
-	 private String group_id;
-	 private String pstinst_code;
-	 private String emplyr_sttus_code;
-	 private String esntl_id;
-	 private String crtfc_dn_value;
-	 private Date sbscrb_de;
+	 private String EMPLYR_ID;
+	 private String ORGNZT_ID;
+	 private String USER_NM;
+	 private String PASSWORD;
+	 private String EMPL_NO;
+	 private String IHIDNUM;
+	 private String SEXDSTN_CODE;
+	 private String BRTHDY;
+	 private String FXNUM;
+	 private String HOUSE_ADRES;
+	 private String PASSWORD_HINT;
+	 private String PASSWORD_CNSR;
+	 private String HOUSE_END_TELNO;
+	 private String AREA_NO;
+	 private String DETAIL_ADRES;
+	 private String ZIP;
+	 private String OFFM_TELNO;
+	 private String MBTLNUM;
+	 private String EMAIL_ADRES;
+	 private String OFCPS_NM;
+	 private String HOUSE_MIDDLE_TELNO;
+	 private String GROUP_ID;
+	 private String PSTINST_CODE;
+	 private String EMPLYR_STTUS_CODE;
+	 private String ESNTL_ID;
+	 private String CRTFC_DN_VALUE;
+	 private Date SBSCRB_DE;
+	public String getEMPLYR_ID() {
+		return EMPLYR_ID;
+	}
+		
+		 @Override
+		   public String toString() {
+		      return "EmployerInfoVO [EMPLYR_ID=" + EMPLYR_ID + ", ORGNZT_ID=" + ORGNZT_ID + ", USER_NM=" + USER_NM
+		            + ", PASSWORD=" + PASSWORD + ", EMPL_NO=" + EMPL_NO + ", IHIDNUM=" + IHIDNUM + ", SEXDSTN_CODE="
+		            + SEXDSTN_CODE + ", BRTHDY=" + BRTHDY + ", FXNUM=" + FXNUM + ", HOUSE_ADRES=" + HOUSE_ADRES
+		            + ", PASSWORD_HINT=" + PASSWORD_HINT + ", PASSWORD_CNSR=" + PASSWORD_CNSR + ", HOUSE_END_TELNO="
+		            + HOUSE_END_TELNO + ", AREA_NO=" + AREA_NO + ", DETAIL_ADRES=" + DETAIL_ADRES + ", ZIP=" + ZIP
+		            + ", OFFM_TELNO=" + OFFM_TELNO + ", MBTLNUM=" + MBTLNUM + ", EMAIL_ADRES=" + EMAIL_ADRES + ", OFCPS_NM="
+		            + OFCPS_NM + ", HOUSE_MIDDLE_TELNO=" + HOUSE_MIDDLE_TELNO + ", GROUP_ID=" + GROUP_ID + ", PSTINST_CODE="
+		            + PSTINST_CODE + ", EMPLYR_STTUS_CODE=" + EMPLYR_STTUS_CODE + ", ESNTL_ID=" + ESNTL_ID
+		            + ", CRTFC_DN_VALUE=" + CRTFC_DN_VALUE + ", SBSCRB_DE=" + SBSCRB_DE + "]";
+
+	}
+	
+	
+	public void setEMPLYR_ID(String eMPLYR_ID) {
+		EMPLYR_ID = eMPLYR_ID;
+	}
+	public String getORGNZT_ID() {
+		return ORGNZT_ID;
+	}
+	public void setORGNZT_ID(String oRGNZT_ID) {
+		ORGNZT_ID = oRGNZT_ID;
+	}
+	public String getUSER_NM() {
+		return USER_NM;
+	}
+	public void setUSER_NM(String uSER_NM) {
+		USER_NM = uSER_NM;
+	}
+	public String getPASSWORD() {
+		return PASSWORD;
+	}
+	public void setPASSWORD(String pASSWORD) {
+		PASSWORD = pASSWORD;
+	}
+	public String getEMPL_NO() {
+		return EMPL_NO;
+	}
+	public void setEMPL_NO(String eMPL_NO) {
+		EMPL_NO = eMPL_NO;
+	}
+	public String getIHIDNUM() {
+		return IHIDNUM;
+	}
+	public void setIHIDNUM(String iHIDNUM) {
+		IHIDNUM = iHIDNUM;
+	}
+	public String getSEXDSTN_CODE() {
+		return SEXDSTN_CODE;
+	}
+	public void setSEXDSTN_CODE(String sEXDSTN_CODE) {
+		SEXDSTN_CODE = sEXDSTN_CODE;
+	}
+	public String getBRTHDY() {
+		return BRTHDY;
+	}
+	public void setBRTHDY(String bRTHDY) {
+		BRTHDY = bRTHDY;
+	}
+	public String getFXNUM() {
+		return FXNUM;
+	}
+	public void setFXNUM(String fXNUM) {
+		FXNUM = fXNUM;
+	}
+	public String getHOUSE_ADRES() {
+		return HOUSE_ADRES;
+	}
+	public void setHOUSE_ADRES(String hOUSE_ADRES) {
+		HOUSE_ADRES = hOUSE_ADRES;
+	}
+	public String getPASSWORD_HINT() {
+		return PASSWORD_HINT;
+	}
+	public void setPASSWORD_HINT(String pASSWORD_HINT) {
+		PASSWORD_HINT = pASSWORD_HINT;
+	}
+	public String getPASSWORD_CNSR() {
+		return PASSWORD_CNSR;
+	}
+	public void setPASSWORD_CNSR(String pASSWORD_CNSR) {
+		PASSWORD_CNSR = pASSWORD_CNSR;
+	}
+	public String getHOUSE_END_TELNO() {
+		return HOUSE_END_TELNO;
+	}
+	public void setHOUSE_END_TELNO(String hOUSE_END_TELNO) {
+		HOUSE_END_TELNO = hOUSE_END_TELNO;
+	}
+	public String getAREA_NO() {
+		return AREA_NO;
+	}
+	public void setAREA_NO(String aREA_NO) {
+		AREA_NO = aREA_NO;
+	}
+	public String getDETAIL_ADRES() {
+		return DETAIL_ADRES;
+	}
+	public void setDETAIL_ADRES(String dETAIL_ADRES) {
+		DETAIL_ADRES = dETAIL_ADRES;
+	}
+	public String getZIP() {
+		return ZIP;
+	}
+	public void setZIP(String zIP) {
+		ZIP = zIP;
+	}
+	public String getOFFM_TELNO() {
+		return OFFM_TELNO;
+	}
+	public void setOFFM_TELNO(String oFFM_TELNO) {
+		OFFM_TELNO = oFFM_TELNO;
+	}
+	public String getMBTLNUM() {
+		return MBTLNUM;
+	}
+	public void setMBTLNUM(String mBTLNUM) {
+		MBTLNUM = mBTLNUM;
+	}
+	public String getEMAIL_ADRES() {
+		return EMAIL_ADRES;
+	}
+	public void setEMAIL_ADRES(String eMAIL_ADRES) {
+		EMAIL_ADRES = eMAIL_ADRES;
+	}
+	public String getOFCPS_NM() {
+		return OFCPS_NM;
+	}
+	public void setOFCPS_NM(String oFCPS_NM) {
+		OFCPS_NM = oFCPS_NM;
+	}
+	public String getHOUSE_MIDDLE_TELNO() {
+		return HOUSE_MIDDLE_TELNO;
+	}
+	public void setHOUSE_MIDDLE_TELNO(String hOUSE_MIDDLE_TELNO) {
+		HOUSE_MIDDLE_TELNO = hOUSE_MIDDLE_TELNO;
+	}
+	public String getGROUP_ID() {
+		return GROUP_ID;
+	}
+	public void setGROUP_ID(String gROUP_ID) {
+		GROUP_ID = gROUP_ID;
+	}
+	public String getPSTINST_CODE() {
+		return PSTINST_CODE;
+	}
+	public void setPSTINST_CODE(String pSTINST_CODE) {
+		PSTINST_CODE = pSTINST_CODE;
+	}
+	public String getEMPLYR_STTUS_CODE() {
+		return EMPLYR_STTUS_CODE;
+	}
+	public void setEMPLYR_STTUS_CODE(String eMPLYR_STTUS_CODE) {
+		EMPLYR_STTUS_CODE = eMPLYR_STTUS_CODE;
+	}
+	
+	public String getESNTL_ID() {
+		return ESNTL_ID;
+	}
+	public void setESNTL_ID(String eSNTL_ID) {
+		ESNTL_ID = eSNTL_ID;
+	}
+	public String getCRTFC_DN_VALUE() {
+		return CRTFC_DN_VALUE;
+	}
+	public void setCRTFC_DN_VALUE(String cRTFC_DN_VALUE) {
+		CRTFC_DN_VALUE = cRTFC_DN_VALUE;
+	}
+	public Date getSBSCRB_DE() {
+		return SBSCRB_DE;
+	}
+	public void setSBSCRB_DE(Date sBSCRB_DE) {
+		SBSCRB_DE = sBSCRB_DE;
+	}
 	 
-	public String getEmplyr_id() {
-		return emplyr_id;
-	}
-	public void setEmplyr_id(String emplyr_id) {
-		this.emplyr_id = emplyr_id;
-	}
-	public String getOrgnzt_id() {
-		return orgnzt_id;
-	}
-	public void setOrgnzt_id(String orgnzt_id) {
-		this.orgnzt_id = orgnzt_id;
-	}
-	public String getUser_nm() {
-		return user_nm;
-	}
-	public void setUser_nm(String user_nm) {
-		this.user_nm = user_nm;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public String getEmpl_no() {
-		return empl_no;
-	}
-	public void setEmpl_no(String empl_no) {
-		this.empl_no = empl_no;
-	}
-	public String getIhidnum() {
-		return ihidnum;
-	}
-	public void setIhidnum(String ihidnum) {
-		this.ihidnum = ihidnum;
-	}
-	public String getSexdstn_code() {
-		return sexdstn_code;
-	}
-	public void setSexdstn_code(String sexdstn_code) {
-		this.sexdstn_code = sexdstn_code;
-	}
-	public String getBrthdy() {
-		return brthdy;
-	}
-	public void setBrthdy(String brthdy) {
-		this.brthdy = brthdy;
-	}
-	public String getFxnum() {
-		return fxnum;
-	}
-	public void setFxnum(String fxnum) {
-		this.fxnum = fxnum;
-	}
-	public String getHouse_adres() {
-		return house_adres;
-	}
-	public void setHouse_adres(String house_adres) {
-		this.house_adres = house_adres;
-	}
-	public String getPassword_hint() {
-		return password_hint;
-	}
-	public void setPassword_hint(String password_hint) {
-		this.password_hint = password_hint;
-	}
-	public String getPassword_cnsr() {
-		return password_cnsr;
-	}
-	public void setPassword_cnsr(String password_cnsr) {
-		this.password_cnsr = password_cnsr;
-	}
-	public String getHouse_end_telno() {
-		return house_end_telno;
-	}
-	public void setHouse_end_telno(String house_end_telno) {
-		this.house_end_telno = house_end_telno;
-	}
-	public String getArea_no() {
-		return area_no;
-	}
-	public void setArea_no(String area_no) {
-		this.area_no = area_no;
-	}
-	public String getDetail_adres() {
-		return detail_adres;
-	}
-	public void setDetail_adres(String detail_adres) {
-		this.detail_adres = detail_adres;
-	}
-	public String getZip() {
-		return zip;
-	}
-	public void setZip(String zip) {
-		this.zip = zip;
-	}
-	public String getOffm_telno() {
-		return offm_telno;
-	}
-	public void setOffm_telno(String offm_telno) {
-		this.offm_telno = offm_telno;
-	}
-	public String getMbtlnum() {
-		return mbtlnum;
-	}
-	public void setMbtlnum(String mbtlnum) {
-		this.mbtlnum = mbtlnum;
-	}
-	public String getEmail_adres() {
-		return email_adres;
-	}
-	public void setEmail_adres(String email_adres) {
-		this.email_adres = email_adres;
-	}
-	public String getOfcps_nm() {
-		return ofcps_nm;
-	}
-	public void setOfcps_nm(String ofcps_nm) {
-		this.ofcps_nm = ofcps_nm;
-	}
-	public String getHouse_middle_telno() {
-		return house_middle_telno;
-	}
-	public void setHouse_middle_telno(String house_middle_telno) {
-		this.house_middle_telno = house_middle_telno;
-	}
-	public String getGroup_id() {
-		return group_id;
-	}
-	public void setGroup_id(String group_id) {
-		this.group_id = group_id;
-	}
-	public String getPstinst_code() {
-		return pstinst_code;
-	}
-	public void setPstinst_code(String pstinst_code) {
-		this.pstinst_code = pstinst_code;
-	}
-	public String getEmplyr_sttus_code() {
-		return emplyr_sttus_code;
-	}
-	public void setEmplyr_sttus_code(String emplyr_sttus_code) {
-		this.emplyr_sttus_code = emplyr_sttus_code;
-	}
-	public String getEsntl_id() {
-		return esntl_id;
-	}
-	public void setEsntl_id(String esntl_id) {
-		this.esntl_id = esntl_id;
-	}
-	public String getCrtfc_dn_value() {
-		return crtfc_dn_value;
-	}
-	public void setCrtfc_dn_value(String crtfc_dn_value) {
-		this.crtfc_dn_value = crtfc_dn_value;
-	}
-	public Date getSbscrb_de() {
-		return sbscrb_de;
-	}
-	public void setSbscrb_de(Date sbscrb_de) {
-		this.sbscrb_de = sbscrb_de;
-	}
 	 
+	 
+	
 }
