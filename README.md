@@ -18,6 +18,9 @@
 - edu.human.com.member.web 패키지생성(컨트롤러용 패키지)
 - MemberController.java @Controller클래스 생성.
 - com/member/selectMember.do 경로추가(아래)
+- 0). 관리자과리 경로 com/member/selectMember.do 로그인 추가
+로그인체크 관련 파일: egov-com.servlet.xml 인터셉터 관리
+viewresolver: 뷰단 해석기계.(웹페이지루트, 확장자 지정)
 
 ```
 /**

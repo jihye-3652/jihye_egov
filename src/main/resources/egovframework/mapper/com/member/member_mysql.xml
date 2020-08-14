@@ -56,7 +56,7 @@
 			EMPLYR_ID = #{EMPLYR_ID}
 	</delete>	
 	<select id="viewMember" resultType="edu.human.com.member.service.EmployerInfoVO">
-		select * from lettnemplyrinfo where = EMPLYR_ID = #{EMPLYR_ID}
+		select * from lettnemplyrinfo where EMPLYR_ID = #{EMPLYR_ID}
 	</select>
 				 	
 </mapper>
