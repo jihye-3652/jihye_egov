@@ -5,7 +5,7 @@
  
       수정일         수정자                   수정내용
     -------    --------    ---------------------------
-     2011.08.31   JJY       경량환경 버전 생성
+   2011.08.31    JJY             경량환경 버전 생성
  
     author   : 실행환경개발팀 JJY
     since    : 2011.08.31 
@@ -50,7 +50,7 @@
     <% }else { %>
     <c:set var="loginName" value="<%= loginVO.getName()%>"/>
     <div id="header_loginname">
-        <a href="#LINK" onclick="alert('개인정보 확인 등의 링크 제공'); return false;"><c:out value="${loginName}"/> 님</a>
+        <a href="<c:url value='/admin/member/selectMember.do'/>"><c:out value="${loginName}"/> 님</a>
     </div>
     <div class="header_loginconnection"> 관리자로 로그인하셨습니다.</div>
     <ul class="login_bg_area">
