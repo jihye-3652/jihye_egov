@@ -10,17 +10,41 @@
 6. http://kimilguk-myadmin.paas-ta.org 접속후 전자정부 프로젝트용 더미데이터 인서트.
 7. http://kimilguk-egov.paas-ta.org 사이트에서 파스타 배포결과 확인. 
 ***
+### 20200819(수) 작업(아래)
+- 4). 클라우드 파스타 앱 제거 후, 이클립스 PUSH(???-egovadmin관리용 php앱 이름)
+- 3). 클라우드 파스타 mysql서비스 제거 후, 생성(???-egov-db 서비스 이름)
+- 2). 타일즈 템플릿(UI쪽-레이아웃정리) 라이브러리 사용. 전자정부 프로젝트에 적용OK.
+- 1). DB인터페이스 확인 (아래)
+- 실행가능한 소스 https://github.com/miniplugin/Dbinterface_ora_ok.git
+ ( 오라클 insert 후 커밋, System.out.print(vo.toString()); )
+### 20200818(화) 작업(아래)
+- 2). 서버프로그램 시험준비 후 3교시 부터 시험.
+- 1). 관리자 등록시 아이디중복체크(RestAPI사용) 마무리.
+- 주). RestAPI사용은 이클립스 내장브라우저에서는 않되기 때문에, 크롬 또는 IE사용OK.
+### 20200817(월) 작업(아래)
+- 3). 전자정부 프로젝트*(관리자관리기능추가한것) 파스타에 배포.(시간날때처리)
+- 2). 관리자 등록시 아이디중복체크(RestAPI사용) 기능추가.
+- 1). 관리자관리 기능 CRUD 마무리 OK.
 
-### 20200814(금) 작업예정(아래)
+### 20200814(금) 작업(아래)
 - 3). 로컬PC에서 결과 확인 후 파스타에 배포예정.
 - 2). 멤버 뷰페이지, 업데이트페이지, 인서트 페이지 생성.
+
+```
+우리가 기존에 작업한 스프링 프로젝트에서 아래처럼
+<form id="폼이름" name="폼이름">
+</form>
+전자정부 프로젝트에서는 아래처럼
+<form:form commandName="폼이름" name="폼이름">
+</form:form>
+```
 - 1). 컨트롤러에 멤버리스트페이지 경로추가(아래)
 - edu.human.com.member.web 패키지생성(컨트롤러용 패키지)
 - MemberController.java @Controller클래스 생성.
 - com/member/selectMember.do 경로추가(아래)
-- 0). 관리자과리 경로 com/member/selectMember.do 로그인 추가
-로그인체크 관련 파일: egov-com.servlet.xml 인터셉터 관리
-viewresolver: 뷰단 해석기계.(웹페이지루트, 확장자 지정)
+- 0). 관리자관리 경로 com/member/selectMember.do 로그인체크 추가
+  로그인체크 관련 파일: egov-com-servlet.xml(서블렛파일) 인터셉터 관리
+  뷰리졸버(viewresolver): 뷰단(jsp)단 해석기계.(웹페이지루트, 확장자 지정)
 
 ```
 /**

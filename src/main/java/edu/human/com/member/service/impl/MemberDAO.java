@@ -14,7 +14,7 @@ public class MemberDAO extends EgovComAbstractMapper {
 	}
 	public void insertMember(EmployerInfoVO vo) {
 		insert("memberMapper.insertMember", vo);
-	} 
+	}
 	public void updateMember(EmployerInfoVO vo) {
 		update("memberMapper.updateMember", vo);
 	}
@@ -22,6 +22,6 @@ public class MemberDAO extends EgovComAbstractMapper {
 		delete("memberMapper.deleteMember", emplyr_id);
 	}
 	public EmployerInfoVO viewMember(String emplyr_id) {
-	     return selectOne("memberMapper.viewMember", emplyr_id); 
+		return selectOne("memberMapper.viewMember", emplyr_id);
 	}
 }

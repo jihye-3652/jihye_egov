@@ -39,7 +39,7 @@
                     </div>
                 </div>
                                 
-                <form:form commandName="viewForm" name="viewForm" method="get">
+                <form:form commandName="updateForm" name="updateForm" method="post">
                 
                     <div class="modify_user" >
                         <table >
@@ -49,7 +49,31 @@
 					        </th>
 					        <td width="80%" nowrap="nowrap">
 					           <c:out value="${memberVO.EMPLYR_ID}"></c:out>
-					           <input id="EMPLYR_ID" name="EMPLYR_ID" type="hidden" value="${memberVO.EMPLYR_ID}" />
+					           <input name="EMPLYR_ID" type="hidden" value="${memberVO.EMPLYR_ID}" />
+					        </td>
+					      </tr>
+					      <tr> 
+					        <th width="20%" height="23" class="required_text" nowrap >
+					        	사용자 암호
+					        </th>
+					        <td width="80%" nowrap="nowrap">
+					           <input name="PASSWORD" type="text" value="" />
+					        </td>
+					      </tr>
+					      <tr> 
+					        <th width="20%" height="23" class="required_text" nowrap >
+					        	암호 힌트
+					        </th>
+					        <td width="80%" nowrap="nowrap">
+					           <input id="PASSWORD_HINT" name="PASSWORD_HINT" type="text" value="${memberVO.PASSWORD_HINT}" />
+					        </td>
+					      </tr>
+					      <tr> 
+					        <th width="20%" height="23" class="required_text" nowrap >
+					        	암호 힌트 답변
+					        </th>
+					        <td width="80%" nowrap="nowrap">
+					           <input id="PASSWORD_CNSR" name="PASSWORD_CNSR" type="text" value="${memberVO.PASSWORD_CNSR}" />
 					        </td>
 					      </tr>
 					      <tr> 
@@ -57,7 +81,8 @@
 					        	사용자 이름
 					        </th>
 					        <td width="80%" nowrap="nowrap">
-					           <c:out value="${memberVO.USER_NM}"></c:out>
+					           
+					           <input name="USER_NM" type="text" value="${memberVO.USER_NM}" />
 					        </td>
 					      </tr>
 					      <tr> 
@@ -65,7 +90,8 @@
 					        	우편번호
 					        </th>
 					        <td width="80%" nowrap="nowrap">
-					           <c:out value="${memberVO.ZIP}"></c:out>
+					           
+					           <input name="ZIP" type="text" value="${memberVO.ZIP}" />
 					        </td>
 					      </tr>
 					      <tr> 
@@ -73,7 +99,8 @@
 					        	집주소
 					        </th>
 					        <td width="80%" nowrap="nowrap">
-					           <c:out value="${memberVO.HOUSE_ADRES}"></c:out>
+					           
+					           <input name="HOUSE_ADRES" type="text" value="${memberVO.HOUSE_ADRES}" />
 					        </td>
 					      </tr>
 					      <tr> 
@@ -81,7 +108,8 @@
 					        	이메일
 					        </th>
 					        <td width="80%" nowrap="nowrap">
-					           <c:out value="${memberVO.EMAIL_ADRES}"></c:out>
+					           
+					           <input name="EMAIL_ADRES" type="text" value="${memberVO.EMAIL_ADRES}" />
 					        </td>
 					      </tr>
 					      <tr> 
@@ -104,7 +132,8 @@
 					        	소속기관
 					        </th>
 					        <td width="80%" nowrap="nowrap">
-					           <c:out value="${memberVO.ORGNZT_ID}"></c:out>
+					           
+					           <input name="ORGNZT_ID" type="text" value="${memberVO.ORGNZT_ID}" />
 					        </td>
 					      </tr>
 					      <tr> 
@@ -112,7 +141,8 @@
 					        	휴면계정여부
 					        </th>
 					        <td width="80%" nowrap="nowrap">
-					           <c:out value="${memberVO.EMPLYR_STTUS_CODE}"></c:out>
+					           
+					           <input name="EMPLYR_STTUS_CODE" type="text" value="${memberVO.EMPLYR_STTUS_CODE}" />
 					        </td>
 					      </tr>
 					      <tr> 
@@ -139,12 +169,6 @@
                           </td>
                           <td width="10"></td>
                           <td>
-                              <a href="#LINK" id="delete_member">
-                              <spring:message code="button.delete" />
-                              </a>
-                          </td>
-                          <td width="10"></td>
-                          <td>
                               <a href="<c:url value='/com/member/selectMember.do'/>">
                               <spring:message code="button.list" />
                               </a>
@@ -154,6 +178,7 @@
                       </table>
                     </div>
                     <!-- 버튼 끝 -->   
+                    <input name="ESNTL_ID" type="hidden" value="${memberVO.ESNTL_ID}" />
                  </form:form> 
             </div>
             <!-- //content 끝 -->    
@@ -169,19 +194,19 @@
 <script>
 $(document).ready(function(){
 	
-	$("#delete_member").click(function(){
-		if(confirm("정말로 삭제 하시겠습니까?")){
-			
-		}else{
-			return false;
-		}
-		$("#viewForm").attr("action", "<c:url value='/com/member/deleteMember.do'/>");
-		$("#viewForm").attr("method", "post");
-		$("#viewForm").submit();
-	});
 	$("#update_member").click(function(){
-		$("#viewForm").attr("action", "<c:url value='/com/member/updateMember.do'/>");
-		$("#viewForm").submit();
+		if($("#PASSWORD_HINT").val() == '') {
+			alert("암호힌트값은 필수 입니다.");
+			$("#PASSWORD_HINT").focus();
+			return;
+		}
+		if($("#PASSWORD_CNSR").val() == '') {
+			alert("암호힌트 답변값은 필수 입니다.");
+			$("#PASSWORD_CNSR").focus();
+			return;
+		}
+		$("#updateForm").attr("action", "<c:url value='/com/member/updateMember.do'/>");
+		$("#updateForm").submit();
 	});
 	
 });

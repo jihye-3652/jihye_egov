@@ -30,25 +30,23 @@ public class EmployerInfoVO {
 	 private String ESNTL_ID;
 	 private String CRTFC_DN_VALUE;
 	 private Date SBSCRB_DE;
+	 
+	 
+	@Override
+	public String toString() {
+		return "EmployerInfoVO [EMPLYR_ID=" + EMPLYR_ID + ", ORGNZT_ID=" + ORGNZT_ID + ", USER_NM=" + USER_NM
+				+ ", PASSWORD=" + PASSWORD + ", EMPL_NO=" + EMPL_NO + ", IHIDNUM=" + IHIDNUM + ", SEXDSTN_CODE="
+				+ SEXDSTN_CODE + ", BRTHDY=" + BRTHDY + ", FXNUM=" + FXNUM + ", HOUSE_ADRES=" + HOUSE_ADRES
+				+ ", PASSWORD_HINT=" + PASSWORD_HINT + ", PASSWORD_CNSR=" + PASSWORD_CNSR + ", HOUSE_END_TELNO="
+				+ HOUSE_END_TELNO + ", AREA_NO=" + AREA_NO + ", DETAIL_ADRES=" + DETAIL_ADRES + ", ZIP=" + ZIP
+				+ ", OFFM_TELNO=" + OFFM_TELNO + ", MBTLNUM=" + MBTLNUM + ", EMAIL_ADRES=" + EMAIL_ADRES + ", OFCPS_NM="
+				+ OFCPS_NM + ", HOUSE_MIDDLE_TELNO=" + HOUSE_MIDDLE_TELNO + ", GROUP_ID=" + GROUP_ID + ", PSTINST_CODE="
+				+ PSTINST_CODE + ", EMPLYR_STTUS_CODE=" + EMPLYR_STTUS_CODE + ", ESNTL_ID=" + ESNTL_ID
+				+ ", CRTFC_DN_VALUE=" + CRTFC_DN_VALUE + ", SBSCRB_DE=" + SBSCRB_DE + "]";
+	}
 	public String getEMPLYR_ID() {
 		return EMPLYR_ID;
 	}
-		
-		 @Override
-		   public String toString() {
-		      return "EmployerInfoVO [EMPLYR_ID=" + EMPLYR_ID + ", ORGNZT_ID=" + ORGNZT_ID + ", USER_NM=" + USER_NM
-		            + ", PASSWORD=" + PASSWORD + ", EMPL_NO=" + EMPL_NO + ", IHIDNUM=" + IHIDNUM + ", SEXDSTN_CODE="
-		            + SEXDSTN_CODE + ", BRTHDY=" + BRTHDY + ", FXNUM=" + FXNUM + ", HOUSE_ADRES=" + HOUSE_ADRES
-		            + ", PASSWORD_HINT=" + PASSWORD_HINT + ", PASSWORD_CNSR=" + PASSWORD_CNSR + ", HOUSE_END_TELNO="
-		            + HOUSE_END_TELNO + ", AREA_NO=" + AREA_NO + ", DETAIL_ADRES=" + DETAIL_ADRES + ", ZIP=" + ZIP
-		            + ", OFFM_TELNO=" + OFFM_TELNO + ", MBTLNUM=" + MBTLNUM + ", EMAIL_ADRES=" + EMAIL_ADRES + ", OFCPS_NM="
-		            + OFCPS_NM + ", HOUSE_MIDDLE_TELNO=" + HOUSE_MIDDLE_TELNO + ", GROUP_ID=" + GROUP_ID + ", PSTINST_CODE="
-		            + PSTINST_CODE + ", EMPLYR_STTUS_CODE=" + EMPLYR_STTUS_CODE + ", ESNTL_ID=" + ESNTL_ID
-		            + ", CRTFC_DN_VALUE=" + CRTFC_DN_VALUE + ", SBSCRB_DE=" + SBSCRB_DE + "]";
-
-	}
-	
-	
 	public void setEMPLYR_ID(String eMPLYR_ID) {
 		EMPLYR_ID = eMPLYR_ID;
 	}
@@ -190,7 +188,6 @@ public class EmployerInfoVO {
 	public void setEMPLYR_STTUS_CODE(String eMPLYR_STTUS_CODE) {
 		EMPLYR_STTUS_CODE = eMPLYR_STTUS_CODE;
 	}
-	
 	public String getESNTL_ID() {
 		return ESNTL_ID;
 	}
@@ -209,8 +206,6 @@ public class EmployerInfoVO {
 	public void setSBSCRB_DE(Date sBSCRB_DE) {
 		SBSCRB_DE = sBSCRB_DE;
 	}
-	 
-	 
 	 
 	
 }

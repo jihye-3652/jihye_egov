@@ -1,4 +1,4 @@
-package jihye_egov;
+package kimilguk_egov;
 
 import java.sql.Connection;
 import java.sql.SQLException;
