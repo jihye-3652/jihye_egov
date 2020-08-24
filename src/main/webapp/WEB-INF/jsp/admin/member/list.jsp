@@ -115,7 +115,7 @@
    
    
    </div>
- <!-- /.content-Wrapper -->
+ <!-- /.Content Wrapper. Contains page content  -->
   
   <!-- /.content-wrapper -->
   <%@ include file="../include/footer.jsp" %>
