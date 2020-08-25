@@ -1,0 +1,12 @@
+---
+applications:
+- name: jihye-egov
+  memory: 1024M
+  disk_quota: 1024M
+  instances: 1
+  host: jihye-egov
+  domain: paas-ta.org
+  services:
+  - jihye-egov-db
+ 
+  
