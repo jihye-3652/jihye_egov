@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>AdminLTE 3 | 관리자 화면</title>
+  <title>AdminLTE 3 | 관리자화면</title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="<c:url value='/'/>plugins/fontawesome-free/css/all.min.css">
@@ -25,19 +25,32 @@
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
-    
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
     </ul>
 
+    <!-- SEARCH FORM -->
+    <form class="form-inline ml-3">
+      <div class="input-group input-group-sm">
+        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-navbar" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-    <li class="nav-item">
-    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
-    class="fas fa-th-large"></i></a> <!-- 상단 오른쪽 바둑이 -->
-  </li>
-  </ul>
+      <!-- Notifications Dropdown Menu -->
+      <li class="nav-item">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
+            class="fas fa-th-large"></i></a>
+      </li>
+    </ul>
   </nav>
+  <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -61,23 +74,11 @@
           </a>
         </div>
       </div>
-      
-         <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-    
-           <!-- Sidebar Menu -->
+
+      <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-           <li class="nav-item">
+          <li class="nav-item">
             <a href="<c:url value='/'/>" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>사용자 홈</p>
@@ -98,39 +99,16 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<c:url value='/' />admin/board/selectBoard.do" class="nav-link">
+                <a href="<c:url value='/'/>admin/board/selectBoard.do" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>게시판관리</p>
                 </a>
               </li>
             </ul>
           </li>
-         
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
   </aside>
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-    <div class="p-3">
-      <h5>Title</h5>
-      <p>Sidebar content</p>
-      <button type="button" class="btn btn-primary btn-lg btn-block">로그아웃</button>
-    </div>
-  </aside>
-  
-  <!-- /.control-sidebar -->
-<!-- REQUIRED SCRIPTS -->
-
-<!-- jQuery -->
-<script src="<c:url value='/'/>plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="<c:url value='/'/>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="<c:url value='/'/>dist/js/adminlte.min.js"></script>
-</body>
-</html>
