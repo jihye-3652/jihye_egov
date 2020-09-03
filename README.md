@@ -1,6 +1,37 @@
 ## 전자정부 표준프레임워크 커스터마이징 
 
 ***
+### 2020-09-03(목)
+- 쿼리 완성 후, DAO 만들기
+- SHIFT + TAP = 들여쓰기 
+- 테이블 명 대문자로 바꾸기 (영역지정-> Ctrl + Shift + X )
+- Mapper 폴더 안에 board 폴더 생성 후 xml삭제쿼리 생성
+- xml쿼리생성(mybatis사용)-DAO생성-service생성- 현재컨트롤러 수정
+- 이후 기존코드유지 후 새 코드 작성 
+- BoardController 클래서 오픈
+### 2020-09-02(수)
+-이전 스프링 프로젝트는 수정을 페이지로 구성하였으나
+-전자정부 프로젝트는 수정을 보기페이지와 같이 사용하도록 처리.
+-위 처리 내용 2가지 제목/내용 readonly 제거, 작성자 값 ntcrNM 변경
+### 2020-09-01(화)
+-Method(자바에서 호칭함수), 함수 - function(C언어/JavaScript)
+-@ModelAttribute("searchVO") BoardVO boardVO
+	controller가 받는 변수는 boardVO
+	jsp 로 보내는 변수는 searchVO
+-이전 관리자 기능은 전자정부에 없었기 때문에 개발자가 정해진 틀없이 직접 만듦
+ 지금 작업하는 게시판관리는 기존 전자정부에 있기 때문에 기존 규칙을 따르는 것이 안전함.
+-문제점: 관리자단과 사용자 단이 통합 -> 코딩이 어려움 = 개선: 관리자단/사용자단 분리
+-control + shift + R => 파일이름 검색 단축기
+-list.jsp에서 호출(링크) BoardController line38, admin/board/list,jsp line89.
+-기존 패키지에서 egovFramework.let.cop.bbs.web -> EgovBBSManageController.java -> selectBoardArticle.do 매핑값 복사/ line 196 
+-기존 프로젝트에서 boad_view.html하이르 찾아서 테이블 디자인 입히기.
+-게시판 상세보기 화면 만들고, 프로그램 입히기 작업 진행중...
+- 카드 클래스: card 웹 프로그램에서 최초로 사용하던곳 쇼핑몰에서 상품을 갤러리 형식으로 표시할때 사용하던 방식.(카드방식)
+-view.jsp 디자인 확인: 컨트롤러에서 @RequestMapping 경로 추가...
+- 기능별로 나눠져 있는 방식을 따라서 edu.human.com.board.web 패키지에 추가.
+***
+
+***
 ### 커스터 마이징 후 파스타 클라우드 활용예정(공통)
 1. 스프링프로젝트 kimilguk_egov 변경 -> kimilguk-egov.
 2. 이클립스에서 kimilguk-egov 프로젝트를 파스타에 배포.(Mysql용)
@@ -17,6 +48,7 @@
 - 1). DB인터페이스 확인 (아래)
 - 실행가능한 소스 https://github.com/miniplugin/Dbinterface_ora_ok.git
  ( 오라클 insert 후 커밋, System.out.print(vo.toString()); )
+ 
 ### 20200818(화) 작업(아래)
 - 2). 서버프로그램 시험준비 후 3교시 부터 시험.
 - 1). 관리자 등록시 아이디중복체크(RestAPI사용) 마무리.

@@ -87,6 +87,12 @@
                       <td><b><c:out value="${paginationInfo.totalRecordCount+1 - ((searchVO.pageIndex-1) * searchVO.pageSize + status.count)}"/></b></td>
                       <td>
                       <form name="subForm" method="post" action="<c:url value='/admin/board${prefix}/viewBoard.do'/>">
+                      	<c:if test="${result.replyLc!=0}">
+			                <c:forEach begin="0" end="${result.replyLc}" step="1">
+			                    &nbsp;
+			                </c:forEach>
+			                <img src="<c:url value='/images/reply_arrow.gif'/>" alt="reply arrow"/>
+			            </c:if>
                       	<input type="hidden" name="bbsId" value="<c:out value='${result.bbsId}'/>" />
                         <input type="hidden" name="nttId"  value="<c:out value="${result.nttId}"/>" />
                         <input type="hidden" name="bbsTyCode" value="<c:out value='${brdMstrVO.bbsTyCode}'/>" />
