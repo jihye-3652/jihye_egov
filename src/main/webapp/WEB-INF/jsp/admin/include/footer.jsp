@@ -36,12 +36,17 @@
 
 <script>
 $(document).ready(function() {
-    var current = location.pathname;
+    var current = '${bdMstr.bbsId}';
+    if(current==''){
+    	current = '${boardVO.bbsId}';
+    }
+    //alert(current);//디버그용
     //alert(current.split("/admin",3)[1]);//디버그 값
-    var current_split = current.split("/admin",3)[1];//board 또는 member
+    //var current_split = current.split("/admin",3)[1];//board 또는 member
+    var current_split = current;
     $('.nav-treeview li a').each(function(){
         var $this = $(this);
-        if(current=="/admin" || current=="/admin/") {
+        if(current=="" || current=="/admin/") {
         	
         }else{
 	        //if($this.attr('href').includes(current) == true){

@@ -4,7 +4,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
-import edu.human.board.service.BoardService;
+import edu.human.com.board.service.BoardService;
 
 	@Service
 public class BoardServiceImpl implements BoardService{

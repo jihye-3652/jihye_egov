@@ -18,7 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springmodules.validation.commons.DefaultBeanValidator;
 
-import edu.human.board.service.BoardService;
+import edu.human.com.board.service.BoardService;
 import egovframework.com.cmm.EgovMessageSource;
 import egovframework.com.cmm.LoginVO;
 import egovframework.com.cmm.service.EgovFileMngService;
@@ -57,10 +57,10 @@ public class BoardController {
 
     @Resource(name = "EgovFileMngUtil")
     private EgovFileMngUtil fileUtil;
-	
+    
     @Inject
     private BoardService boardService;
-    
+	
 	/**
      * XSS 방지 처리.
      *
@@ -92,7 +92,112 @@ public class BoardController {
         return ret;
     }
 	
-	
+	/*
+	 * AdminLTE용 게시물 작성 실제 DB에 입력처리
+	 */
+    @RequestMapping("/admin/board/insertBoard.do")
+    public String insertBoard(final MultipartHttpServletRequest multiRequest, @ModelAttribute("searchVO") BoardVO boardVO,
+    	    @ModelAttribute("bdMstr") BoardMaster bdMstr, @ModelAttribute("board") Board board, BindingResult bindingResult, SessionStatus status,
+    	    ModelMap model) throws Exception {
+    	
+    	// 사용자권한 처리
+    	if(!EgovUserDetailsHelper.isAuthenticated()) {
+    		model.addAttribute("message", egovMessageSource.getMessage("fail.common.login"));
+        	return "cmm/uat/uia/EgovLoginUsr";
+    	}
+
+    	LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
+    	Boolean isAuthenticated = EgovUserDetailsHelper.isAuthenticated();
+
+    	beanValidator.validate(board, bindingResult);
+    	if (bindingResult.hasErrors()) {
+
+    	    BoardMasterVO master = new BoardMasterVO();
+    	    BoardMasterVO vo = new BoardMasterVO();
+
+    	    vo.setBbsId(boardVO.getBbsId());
+    	    vo.setUniqId(user.getUniqId());
+
+    	    master = bbsAttrbService.selectBBSMasterInf(vo);
+
+    	    model.addAttribute("bdMstr", master);
+
+    	    //----------------------------
+    	    // 기본 BBS template 지정
+    	    //----------------------------
+    	    if (master.getTmplatCours() == null || master.getTmplatCours().equals("")) {
+    		master.setTmplatCours("/css/egovframework/cop/bbs/egovBaseTemplate.css");
+    	    }
+
+    	    model.addAttribute("brdMstrVO", master);
+    	    ////-----------------------------
+
+    	    return "admin/board/insert";
+    	}
+
+    	if (isAuthenticated) {
+    	    List<FileVO> result = null;
+    	    String atchFileId = "";
+
+    	    final Map<String, MultipartFile> files = multiRequest.getFileMap();
+    	    if (!files.isEmpty()) {
+    		result = fileUtil.parseFileInf(files, "BBS_", 0, "", "");
+    		atchFileId = fileMngService.insertFileInfs(result);
+    	    }
+    	    board.setAtchFileId(atchFileId);
+    	    board.setFrstRegisterId(user.getUniqId());
+    	    board.setBbsId(board.getBbsId());
+
+    	    board.setNtcrNm("");	// dummy 오류 수정 (익명이 아닌 경우 validator 처리를 위해 dummy로 지정됨)
+    	    board.setPassword("");	// dummy 오류 수정 (익명이 아닌 경우 validator 처리를 위해 dummy로 지정됨)
+    	    //board.setNttCn(unscript(board.getNttCn()));	// XSS 방지
+
+    	    bbsMngService.insertBoardArticle(board);
+    	}
+
+    	//status.setComplete();
+    	
+    	return "forward:/admin/board/selectBoard.do";
+    }
+    
+    /*
+	 * AdminLTE용 게시물 작성폼 화면으로 이동
+	 */
+    @RequestMapping("/admin/board/addBoard.do")
+    public String addBoard(@ModelAttribute("searchVO") BoardVO boardVO, ModelMap model) throws Exception {
+    	// 사용자권한 처리
+    	if(!EgovUserDetailsHelper.isAuthenticated()) {
+    		model.addAttribute("message", egovMessageSource.getMessage("fail.common.login"));
+        	return "cmm/uat/uia/EgovLoginUsr";
+    	}
+
+        LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
+    	Boolean isAuthenticated = EgovUserDetailsHelper.isAuthenticated();
+
+    	BoardMasterVO bdMstr = new BoardMasterVO();
+
+    	if (isAuthenticated) {
+
+    	    BoardMasterVO vo = new BoardMasterVO();
+    	    vo.setBbsId(boardVO.getBbsId());
+    	    vo.setUniqId(user.getUniqId());
+
+    	    bdMstr = bbsAttrbService.selectBBSMasterInf(vo);
+    	    model.addAttribute("bdMstr", bdMstr);
+    	}
+
+    	//----------------------------
+    	// 기본 BBS template 지정
+    	//----------------------------
+    	if (bdMstr.getTmplatCours() == null || bdMstr.getTmplatCours().equals("")) {
+    	    bdMstr.setTmplatCours("/css/egovframework/cop/bbs/egovBaseTemplate.css");
+    	}
+
+    	model.addAttribute("brdMstrVO", bdMstr);
+    	////-----------------------------
+    	return "admin/board/insert";
+    }
+    
     /*
      * AdminLTE용 게시물 삭제(관리자삭제는 테이블 레코드-1줄 을 삭제처리)
      * 기존에는 게시판 레코드-1줄에서 USE_AT필드값을 N으로 변경해서 처리 와 차이있음.
@@ -108,12 +213,13 @@ public class BoardController {
     	LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
    	    board.setLastUpdusrId(user.getUniqId());
    	    bbsMngService.deleteBoardArticle(board);
-   	    //여기까지 진행되면, 기존삭제 로직은 마무리, 그대로 유지
-   	    //이후에 개발자가 완전사계 코드를 추가하면 됩니다.(아래)
+   	    //여기까지 진행되면, 기존삭제 로직은 마무리, 그대로 유지(여기에 파일삭제삭제 기능까지 있음)
+   	    //이후에 개발자가 완전삭제 코드를 추가하면 됩니다.(아래-레코드삭제목적)
    	    boardService.deleteBoard(board.getNttId());
-   	    
+
     	return "forward:/admin/board/selectBoard.do";
     }
+    
     /*
 	 * AdminLTE용 게시물 수정(관리자단, 상세보기+수정 함께사용으로 개선).
 	 */
@@ -185,6 +291,7 @@ public class BoardController {
 
 	return "forward:/admin/board/selectBoard.do";
 	}
+	
 	/*
 	 * AdminLTE용 게시물에 대한 상세보기.
 	 */
@@ -239,9 +346,9 @@ public class BoardController {
 	public String selectBoard(@ModelAttribute("searchVO") BoardVO boardVO, ModelMap model) throws Exception {
 		//게시판 Id 값 초기화 : KiK 20200824
 		//System.out.println("=========디버그=:" + boardVO.getBbsId());
-		if(boardVO.getBbsId() == "") {
+		/*if(boardVO.getBbsId() == "") {
 			boardVO.setBbsId("BBSMSTR_AAAAAAAAAAAA");
-		}
+		}*/
 		
 		LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
 
