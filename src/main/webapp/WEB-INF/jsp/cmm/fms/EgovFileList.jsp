@@ -58,7 +58,7 @@
       	<c:forEach var="fileVO" items="${fileList}" varStatus="status">
 	       <c:choose>
 		       <c:when test="${updateFlag=='Y'}">
-		       	   <a href="#LINK" onclick="javascript:fn_egov_downFile('<c:out value="${fileVO.atchFileId}"/>','<c:out value="${fileVO.fileSn}"/>')">
+			       <a href="#LINK" onclick="javascript:fn_egov_downFile('<c:out value="${fileVO.atchFileId}"/>','<c:out value="${fileVO.fileSn}"/>')">
 			       <c:out value="${fileVO.orignlFileNm}"/>&nbsp;[<c:out value="${fileVO.fileMg}"/>&nbsp;byte]
 			       </a>
 			       <img alt="파일 삭제" src="<c:url value='/images/btn/bu5_close.gif'/>" 

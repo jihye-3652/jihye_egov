@@ -93,6 +93,114 @@ public class BoardController {
     }
 	
 	/*
+	 * AdminLTE용 답글 작성 폼 내용을 DB에 입력
+	 */
+    @RequestMapping("/admin/board/insertReply.do")
+    public String insertReply(final MultipartHttpServletRequest multiRequest, @ModelAttribute("searchVO") BoardVO boardVO,
+    	    @ModelAttribute("bdMstr") BoardMaster bdMstr, @ModelAttribute("board") Board board, BindingResult bindingResult, ModelMap model,
+    	    SessionStatus status) throws Exception {
+    	
+		    	// 사용자권한 처리
+		    	if(!EgovUserDetailsHelper.isAuthenticated()) {
+		    		model.addAttribute("message", egovMessageSource.getMessage("fail.common.login"));
+		        	return "cmm/uat/uia/EgovLoginUsr";
+		    	}
+		
+			LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
+			Boolean isAuthenticated = EgovUserDetailsHelper.isAuthenticated();
+		
+			beanValidator.validate(board, bindingResult);
+			if (bindingResult.hasErrors()) {
+			    BoardMasterVO master = new BoardMasterVO();
+			    BoardMasterVO vo = new BoardMasterVO();
+		
+			    vo.setBbsId(boardVO.getBbsId());
+			    vo.setUniqId(user.getUniqId());
+		
+			    master = bbsAttrbService.selectBBSMasterInf(vo);
+		
+			    model.addAttribute("bdMstr", master);
+			    model.addAttribute("result", boardVO);
+		
+			    //----------------------------
+			    // 기본 BBS template 지정
+			    //----------------------------
+			    if (master.getTmplatCours() == null || master.getTmplatCours().equals("")) {
+				master.setTmplatCours("/css/egovframework/cop/bbs/egovBaseTemplate.css");
+			    }
+		
+			    model.addAttribute("brdMstrVO", master);
+			    ////-----------------------------
+		
+			    return "cop/bbs/EgovNoticeReply";
+			}
+		
+			if (isAuthenticated) {
+			    final Map<String, MultipartFile> files = multiRequest.getFileMap();
+			    String atchFileId = "";
+		
+			    if (!files.isEmpty()) {
+				List<FileVO> result = fileUtil.parseFileInf(files, "BBS_", 0, "", "");
+				atchFileId = fileMngService.insertFileInfs(result);
+			    }
+		
+			    board.setAtchFileId(atchFileId);
+			    board.setReplyAt("Y");
+			    board.setFrstRegisterId(user.getUniqId());
+			    board.setBbsId(board.getBbsId());
+			    board.setParnts(Long.toString(boardVO.getNttId()));
+			    board.setSortOrdr(boardVO.getSortOrdr());
+			    board.setReplyLc(Integer.toString(Integer.parseInt(boardVO.getReplyLc()) + 1));
+		
+			    board.setNtcrNm("");	// dummy 오류 수정 (익명이 아닌 경우 validator 처리를 위해 dummy로 지정됨)
+			    board.setPassword("");	// dummy 오류 수정 (익명이 아닌 경우 validator 처리를 위해 dummy로 지정됨)
+		
+			    board.setNttCn(unscript(board.getNttCn()));	// XSS 방지
+		
+			    bbsMngService.insertBoardArticle(board);
+			}
+    	
+    	return "forward:/admin/board/selectBoard.do";
+    }
+    /*
+	 * AdminLTE용 답글 작성 폼으로 이동 
+	 */
+    @RequestMapping("/admin/board/addReply.do")
+    public String addReply(@ModelAttribute("searchVO") BoardVO boardVO, ModelMap model) throws Exception {
+    	
+    	// 사용자권한 처리
+    	if(!EgovUserDetailsHelper.isAuthenticated()) {
+    		model.addAttribute("message", egovMessageSource.getMessage("fail.common.login"));
+        	return "cmm/uat/uia/EgovLoginUsr";
+    	}
+
+	    LoginVO user = (LoginVO)EgovUserDetailsHelper.getAuthenticatedUser();
+	
+		BoardMasterVO master = new BoardMasterVO();
+		BoardMasterVO vo = new BoardMasterVO();
+	
+		vo.setBbsId(boardVO.getBbsId());
+		vo.setUniqId(user.getUniqId());
+	
+		master = bbsAttrbService.selectBBSMasterInf(vo);
+	
+		model.addAttribute("bdMstr", master);
+		model.addAttribute("result", boardVO);
+	
+		//----------------------------
+		// 기본 BBS template 지정
+		//----------------------------
+		if (master.getTmplatCours() == null || master.getTmplatCours().equals("")) {
+		    master.setTmplatCours("/css/egovframework/cop/bbs/egovBaseTemplate.css");
+		}
+	
+		model.addAttribute("brdMstrVO", master);
+		////-----------------------------
+    	
+    	return "admin/board/insert_reply";
+    }
+    
+    /*
 	 * AdminLTE용 게시물 작성 실제 DB에 입력처리
 	 */
     @RequestMapping("/admin/board/insertBoard.do")

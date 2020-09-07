@@ -22,7 +22,7 @@
     
     function fn_egov_select_noticeList(pageNo) {
         document.board.pageIndex.value = pageNo; 
-        document.board.action = "<c:url value='/admin/board/selectBoard.do'/>";
+        document.board.action = "<c:url value='/'/>admin/board/selectBoard.do?bbsId=${bdMstr.bbsId}";
         document.board.submit();  
     }
     
@@ -39,20 +39,20 @@
         }   
     }
     
-    function fn_egov_moveUpdt_notice() {
+    function fn_egov_insertReply() {
         
         if (!validateBoard(document.board)){
             return;
         }
         
-        if (confirm('<spring:message code="common.update.msg" />')) {
-            document.board.action = "<c:url value='/admin/board/updateBoard.do'/>";
+        if (confirm('<spring:message code="common.regist.msg" />')) {
+            document.board.action = "<c:url value='/admin/board/insertReply.do'/>";
             document.board.submit();                    
         }
     }
     
     function fn_egov_addReply() {
-        document.board.action = "<c:url value='/admin/board/addReply.do'/>";
+        document.board.action = "<c:url value='/admin/board/insertReply.do'/>";
         document.board.submit();          
     }
     
@@ -79,7 +79,7 @@
 						<div class="col-sm-12">
 							<ol class="breadcrumb float-sm-right">
 								<li class="breadcrumb-item"><a href="#">Home</a></li>
-								<li class="breadcrumb-item active">${bdMstr.bbsNm} Page</li>
+								<li class="breadcrumb-item active">${brdMstrVO.bbsNm} Page</li>
 							</ol>
 						</div>
 						<!-- /.col -->
@@ -96,14 +96,14 @@
 						<!-- /.card-header -->
 						<div class="card-body">
 							<form:form commandName="board" name="board" method="post" enctype="multipart/form-data" >
-								<input type="hidden" name="pageIndex" value="<c:out value='${searchVO.pageIndex}'/>"/>
-								<input type="hidden" name="sortOrdr" value="<c:out value='${result.sortOrdr}'/>"/>
-								<input type="hidden" name="replyLc" value="<c:out value='${result.replyLc}'/>"/>
-								<input type="hidden" name="returnUrl" value="<c:url value='/admin/board/viewBoard.do'/>"/>
-								
-								<input type="hidden" name="bbsId" value="<c:out value='${result.bbsId}'/>" />
-								<input type="hidden" name="nttId" value="<c:out value='${result.nttId}'/>" />
-								
+								<input type="hidden" name="replyAt" value="Y" />
+								<input type="hidden" name="pageIndex"  value="<c:out value='${searchVO.pageIndex}'/>"/>
+								<input type="hidden" name="nttId" value="<c:out value='${searchVO.nttId}'/>" />
+								<input type="hidden" name="parnts" value="<c:out value='${searchVO.parnts}'/>" />
+								<input type="hidden" name="sortOrdr" value="<c:out value='${searchVO.sortOrdr}'/>" />
+								<input type="hidden" name="replyLc" value="<c:out value='${searchVO.replyLc}'/>" />
+													
+								<input type="hidden" name="bbsId" value="<c:out value='${bdMstr.bbsId}'/>" />
 								<input type="hidden" name="bbsAttrbCode" value="<c:out value='${bdMstr.bbsAttrbCode}'/>" />
 								<input type="hidden" name="bbsTyCode" value="<c:out value='${bdMstr.bbsTyCode}'/>" />
 								<input type="hidden" name="replyPosblAt" value="<c:out value='${bdMstr.replyPosblAt}'/>" />
@@ -113,6 +113,7 @@
 								<input type="hidden" name="tmplatId" value="<c:out value='${bdMstr.tmplatId}'/>" />
 								
 								<input type="hidden" name="cal_url" value="<c:url value='/sym/cmm/EgovNormalCalPopup.do'/>" />
+								<input type="hidden" name="authFlag" value="<c:out value='${bdMstr.authFlag}'/>" />
 								
 								<c:if test="${anonymous != 'true'}">
 									<input type="hidden" name="ntcrNm" value="dummy">   <!-- validator 처리를 위해 지정 -->
@@ -128,7 +129,7 @@
 										<!-- text input -->
 										<div class="form-group">
 											<label>제목</label> 
-											<input id="nttSj" name="nttSj" value="${result.nttSj}" type="text" class="form-control"
+											<input id="nttSj" name="nttSj" value="답글: ${result.nttSj}" type="text" class="form-control"
 												placeholder="" >
 											<br/><form:errors path="nttSj" />
 										</div>
@@ -144,34 +145,14 @@
 										</div>
 									</div>
 
-									<div class="col-sm-4">
-										<!-- text input -->
-										<div class="form-group">
-											<label>작성자</label> 
-											<input name="frstRegisterNm" value="${result.frstRegisterNm}" type="text" class="form-control"
-												placeholder="" readonly>
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<!-- text input -->
-										<div class="form-group">
-											<label>작성시간</label> 
-											<input value="${result.frstRegisterPnttm}" type="text" class="form-control"
-												placeholder="" disabled>
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<!-- text input -->
-										<div class="form-group">
-											<label>조회수</label> 
-											<input value="${result.inqireCo}" type="text" class="form-control"
-												placeholder="" disabled>
-										</div>
-									</div>
 									<c:if test="${not empty result.atchFileId}">
 										<div class="form-group col-12">
 							                <label>업로드된 첨부파일</label>
-							                
+							                <div>
+							                <c:import url="/cmm/fms/selectFileInfs.do" charEncoding="utf-8">
+							                    <c:param name="param_atchFileId" value="${result.atchFileId}" />
+							                </c:import>
+							                </div>
 							                <div class="filename">
 							                <c:import url="/cmm/fms/selectFileInfsForUpdate.do" charEncoding="utf-8">
 							                    <c:param name="param_atchFileId" value="${result.atchFileId}" />
@@ -195,10 +176,8 @@
 										</div>
 								    </c:if>
 									<div class="buttons">
-										<button type="button" onclick="javascript:fn_egov_moveUpdt_notice(); return false;" class="btn btn-warning">수정</button>
-										<button type="button" onclick="javascript:fn_egov_delete_notice(); return false;" class="btn btn-danger">삭제</button>
 										<button type="button" onclick="javascript:fn_egov_select_noticeList('1'); return false;" class="btn btn-primary">목록</button>
-										<button type="button" onclick="javascript:fn_egov_addReply(); return false;" class="btn btn-info">답변</button>
+										<button type="button" onclick="javascript:fn_egov_insertReply(); return false;" class="btn btn-info">답변쓰기</button>
 									</div>
 								</div>
 
