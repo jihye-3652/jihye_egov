@@ -15,6 +15,7 @@
             fn_egov_select_noticeList('1');
         }
     }
+
     function fn_egov_addNotice() {
         document.frm.action = "/sht_webapp/cop/bbs/addBoardArticle.do";
         document.frm.submit();
