@@ -30,8 +30,42 @@
 				<% 
 			       }
 				%>
-				</ul>	
+				</ul>
+				
 				<nav>
+				<ul class="gnb clear">
+					<li><a href="/sample" class="openAll1"><b>COFFEE</b></a>
+                        <div class="gnb_depth gnb_depth2_1">
+                            <ul class="submenu_list">
+                                <li><a href="/sample/">WHAT'S COFFEE?</a></li>
+                                <li><a href="/sample/slide">COFFEE, CAFFEINE AND HEALTH </a></li>
+                            </ul>
+                        </div>
+					</li>
+					
+	        		<li><a href="/board/list" class="openAll2"><b>NEWS</b></a>
+				        <div class="gnb_depth gnb_depth2_2">
+                            <ul class="submenu_list">
+                            <li><a href="/board/list">JICA NEWS</a></li>
+                            <li><a href="#">NEWSLETTERS</a></li>
+                            <li><a href="#">COVID-19 UPDATES</a></li>
+                            </ul>
+                        </div>
+                     </li>
+                        
+                    <li><a href="/board/list" class="openAll3"><b>ABOUT</b></a>
+				        <div class="gnb_depth gnb_depth2_3">
+                            <ul class="submenu_list">
+                            	<li><a href="#">ABOUT JICA</a></li>
+                                <li><a href="#">WORK WITH US</a></li>
+                               	<li><a href="#">CONTACT US</a></li>
+                            </ul>
+                        </div>
+					</li>
+				</ul>
+                </nav>
+					
+				<!-- <nav>
 				<ul class="gnb clear">
 					<li><a href="javascript:;" class="openAll1">스프링정보</a>
 
@@ -67,7 +101,7 @@
                         </div>
 					</li>
 				</ul>
-                </nav>
+                </nav> -->
 				<p class="closePop"><a href="javascript:;">닫기</a></p>
 			</div>
 			<!-- //header_cont -->

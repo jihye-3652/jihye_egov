@@ -11,34 +11,34 @@
                 <ul class="viewImgList">
                     <li class="imglist0">
                         <div class="roll_content">
-                            <a href="javascript:;">
-                            <img src="<c:url value='/'/>home/img/img_slidecontents01.png" alt="OOOO OOOOO OOOO OOOOO, 스프링... OOOO OOOOO?"></a>
-                            <p class="roll_txtline">OOOO OOOOOOOOO OOOOOOOOO OOOOO</p>
+                            <a href="/resources/home/javascript:;">
+                            <img src="<c:url value='/'/>home/img/banner_1.png" style="max-width:100%; height:auto;" alt="JICA's LOGO1"></a>
+                            <p class="roll_txtline">JICA'S LOGO 1</p>
                         </div>
                     </li>
                     <li class="imglist1">
                         <div class="roll_content">
-                            <a href="javascript:;">
-                            <img src="<c:url value='/'/>home/img/img_slidecontents02.png" alt="OOOO OOOOOOOOO OOOOO 스프링정보, 스프링... OOOO OOOOO?"></a>
-                            <p class="roll_txtline">OOOO OOOOOOOOO OOOOOOOOO OOOOO</p>
+                            <a href="/resources/home/javascript:;">
+                            <img src="<c:url value='/'/>home/img/banner_2.png" style="max-width:100%; height:auto;" alt="JICA's LOGO2"></a>
+                            <p class="roll_txtline">JICA'S LOGO 2</p>
                         </div>
                     </li>
                     <li class="imglist2">
                         <div class="roll_content">
-                            <a href="javascript:;">
-                            <img src="<c:url value='/'/>home/img/img_slidecontents03.png" alt="OOOO OOOOO 믿을 수 있는 스프링정보, 스프링... OOOO OOOOO?"></a>
-                            <p class="roll_txtline">OOOO OOOOOOOOO OOOOOOOOO OOOOO</p>
+                            <a href="/resources/home/javascript:;">
+                            <img src="/home/img/banner_3.png" style="max-width:100%; height:auto;" alt="JICA's LOGO3"></a>
+                            <p class="roll_txtline">JICA'S LOGO 3</p>
                         </div>
                     </li>
                 </ul>
 
                 <div class="rollbtnArea">
                     <ul class="rollingbtn">
-                        <li class="seq butt0"><a href="#butt"><img src="<c:url value='/'/>home/img/btn_rollbutt_on.png" alt="1번" /></a></li>
-                        <li class="seq butt1"><a href="#butt"><img src="<c:url value='/'/>home/img/btn_rollbutt_off.png" alt="2번" /></a></li>
-                        <li class="seq butt2"><a href="#butt"><img src="<c:url value='/'/>home/img/btn_rollbutt_off.png" alt="3번" /></a></li>
-                        <li class="rollstop"><a href="#" class="stop"><img src="<c:url value='/'/>home/img/btn_roll_stop.png" alt="멈춤" /></a></li>
-                        <li class="rollplay"><a href="#" class="play"><img src="<c:url value='/'/>home/img/btn_roll_play.png" alt="재생" /></a></li>
+                        <li class="seq butt0"><a href="#butt"><img src="/home/img/btn_rollbutt_on.png" alt="1번" /></a></li>
+                        <li class="seq butt1"><a href="#butt"><img src="/home/img/btn_rollbutt_off.png" alt="2번" /></a></li>
+                        <li class="seq butt2"><a href="#butt"><img src="/home/img/btn_rollbutt_off.png" alt="3번" /></a></li>
+                        <li class="rollstop"><a href="#" class="stop"><img src="/home/img/btn_roll_stop.png" alt="멈춤" /></a></li>
+                        <li class="rollplay"><a href="#" class="play"><img src="/home/img/btn_roll_play.png" alt="재생" /></a></li>
                     </ul>
                 </div><!-- //rollbtnArea -->
 
@@ -49,13 +49,13 @@
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <a href="/resources/home/javascript:;"><img src="/resources/home/img/marble1.jpg" alt="OOOO OOOOO 믿을 수 있는 스프링정보, 스프링... OOOO OOOOO?" /></a>
+                        <a href="/resources/home/javascript:;"><img src="/home/img/marble1.jpg" alt="OOOO OOOOO 믿을 수 있는 스프링정보, 스프링... OOOO OOOOO?" /></a>
                     </div>
                     <div class="swiper-slide">
-                        <a href="/resources/home/javascript:;"><img src="/resources/home/img/marble1.jpg" alt="OOOO OOOOO 믿을 수 있는 스프링정보, 스프링... OOOO OOOOO?" /></a>
+                        <a href="/resources/home/javascript:;"><img src="/home/img/marble1.jpg" alt="OOOO OOOOO 믿을 수 있는 스프링정보, 스프링... OOOO OOOOO?" /></a>
                     </div>
                     <div class="swiper-slide">
-                        <a href="/resources/home/javascript:;"><img src="/resources/home/img/marble1.jpg" alt="OOOO OOOOO 믿을 수 있는 스프링정보, 스프링... OOOO OOOOO?" /></a>
+                        <a href="/resources/home/javascript:;"><img src="/home/img/marble1.jpg" alt="OOOO OOOOO 믿을 수 있는 스프링정보, 스프링... OOOO OOOOO?" /></a>
                     </div>
                 </div>						
                 <div class="swiper-pagination"></div>
@@ -67,27 +67,37 @@
 	
 		<!-- about_area -->
 		<div class="about_area">
-			<h2>OOOO OOOOO 스프링 <b>TOP 3</b></h2>
+			<h2>ABOUT JICA <b>TOP3 ARTICLES</b></h2>
 			<div class="about_box">
 				<ul class="place_list box_inner clear">
-					<li><a href="#" onclick="$('.popup_base').css('height',$(document).height());$('.contact_pop').show();">
-							<img class="img_topplace" src="<c:url value='/'/>home/img/img_topplace01.jpg" alt="OOOO OOOOO" />
-							<h3>OOOO OOOOO</h3>
-							<p class="txt">OOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOO!</p>
-							<span class="view">VIEW</span></a>
-					</li>
-					<li><a href="#" onclick="$('.popup_base').css('height',$(document).height());$('.space_pop').show();">
-							<img class="img_topplace" src="<c:url value='/'/>home/img/img_topplace02.jpg" alt="OOOO OOOOO" />
-							<h3>OOOO OOOOO</h3>
-							<p class="txt">OOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOO.</p>
-							<span class="view">VIEW</span></a>
-					</li>
-					<li><a href="#" onclick="$('.popup_base').css('height',$(document).height());$('.program_pop').show();">
-							<img class="img_topplace" src="<c:url value='/'/>home/img/img_topplace03.jpg" alt="OOOO OOOOO" />
-							<h3>OOOO OOOOO</h3>
-							<p class="txt">OOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOO</p>
-							<span class="view">VIEW</span></a>
-					</li>
+				<c:forEach items="${boardList}" var="boardVO" varStatus="status">
+						<c:if test="${status.count <= 3}">
+						<li style="overflow:hidden"><a href="/board/view?bno=${boardVO.bno}&page=1">
+								<!-- 첨부파일이 있을때 if -->
+								<c:if test="${boardVO.files[0] != null }">
+									<c:set var="extName" value="${fn:split(boardVO.files[0],'.')}" />
+									<c:set var="ext" value="${extName[fn:length(extName)-1]}" />
+									<!-- 첨부파일이 있는데 이미지일때와 이미지가 아닐때 choose -->
+									<c:choose>
+										<c:when test="${fn:containsIgnoreCase(extNameArray, ext)}">
+											<img src="/download?filename=${boardVO.files[0]}" title="첨부파일 이미지" style="width:100%;">
+										</c:when>
+										<c:otherwise>
+											<img class="img_topplace" src="/resources/home/img/marble_pink.jpg" alt="이미지 없음" />
+										</c:otherwise>
+									</c:choose>
+								</c:if>
+								<!-- 첨부파일이 없을때 if -->
+								<c:if test="${boardVO.files[0] == null }">
+									<img class="img_topplace" src="/resources/home/img/marble_pink.jpg" alt="이미지 없음" />
+								</c:if>
+								<h3>${boardVO.title}</h3>
+								<p class="txt"><c:out value="${boardVO.content}" escapeXml="false" /></p>
+								<span class="view">VIEW</span></a>
+							</a>
+						</li>
+						</c:if>
+				</c:forEach>
 				</ul>
 			</div>
 		</div>
@@ -98,17 +108,16 @@
 			<div class="appbbs_box box_inner clear">
 				<h2 class="hdd">상담과 최근게시물</h2>
 				<p class="app_line">
-					<a href="javascript:;">카카오톡 1:1 상담</a>
-					<a href="javascript:;">전화 상담 신청</a>
+					<a href="/resources/home/javascript:;">카카오톡 1:1 상담</a>
+					<a href="/resources/home/javascript:;">전화 상담 신청</a>
 				</p>
 				<div class="bbs_line">
-					<h3>NOTICE</h3>
+					<h3><a href="/board/list">NOTICE</a></h3>
 					<ul class="notice_recent">
-						<li><a href="javascript:;">OOOO OOOOO (스프링OOOO OOOOO)</a></li>
-						<li><a href="javascript:;">OOOO OOOOOOOOO OOOOO</a></li>
-						<li><a href="javascript:;">OOOO OOOOO/OOOO OOOOO</a></li>
-						<li><a href="javascript:;">OOOO OOOOO OPEN! (스프링정보, OOOO OOOOO)</a></li>
-						<li><a href="javascript:;">OOOO OOOOO 서비스 점검 안내</a></li>
+					 <c:forEach items="${boardList}" var="boardVO" varStatus="status">
+						<li><a href="/board/view?bno=${boardVO.bno}">${boardVO.title}</a></li>
+						
+					</c:forEach>
 					</ul>
 				</div>
 			</div>
