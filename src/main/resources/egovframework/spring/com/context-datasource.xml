@@ -22,23 +22,23 @@
     <alias name="dataSource-${Globals.DbType}" alias="egov.dataSource" />
     
 	<!-- hsql -->
-	
+	<!-- 
     <jdbc:embedded-database id="dataSource-hsql" type="HSQL">
 		<jdbc:script location= "classpath:/db/shtdb.sql"/>
 	</jdbc:embedded-database>
-	 
- 	<bean id="dataSource-hsql" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	  -->
+ 	<!-- <bean id="dataSource-hsql" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="net.sf.log4jdbc.DriverSpy"/>
 		<property name="url" value="jdbc:log4jdbc:hsqldb:hsql://localhost/sampledb"/>
 		<property name="username" value="sa"/>
 	</bean>
-	
+	 -->
 	<!-- 클라우드 파스타용 DB커넥션 설정(아래) -->
-	<!-- 
+	
 	<cloud:data-source id="dataSource-mysql" service-name="jihye-egov-db">
 		<cloud:connection properties="sessionVariables=sql_mode='ANSI';characterEncoding=UTF-8"/>
 		<cloud:pool pool-size="5-30" max-wait-time="3000"/>
-	</cloud:data-source>  -->
+	</cloud:data-source> 
 	 
 	<!-- mysql -->
 	<!-- 

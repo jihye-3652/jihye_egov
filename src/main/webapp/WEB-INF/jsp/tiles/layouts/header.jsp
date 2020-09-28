@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -12,6 +11,7 @@
 			<!-- header_cont -->
 			<div class="header_cont">
 				<ul class="util clear">
+				<li><a href="<c:url value='/'/>cmm/main/mainPage.do" target="_new">구홈페이지로이동</a></li>
 				<%
 			       LoginVO loginVO = (LoginVO)session.getAttribute("LoginVO"); 
 			       if(loginVO == null){ 
@@ -30,78 +30,21 @@
 				<% 
 			       }
 				%>
-				</ul>
-				
+				</ul>	
 				<nav>
 				<ul class="gnb clear">
-					<li><a href="/sample" class="openAll1"><b>COFFEE</b></a>
-                        <div class="gnb_depth gnb_depth2_1">
-                            <ul class="submenu_list">
-                                <li><a href="/sample/">WHAT'S COFFEE?</a></li>
-                                <li><a href="/sample/slide">COFFEE, CAFFEINE AND HEALTH </a></li>
-                            </ul>
-                        </div>
-					</li>
 					
-	        		<li><a href="/board/list" class="openAll2"><b>NEWS</b></a>
-				        <div class="gnb_depth gnb_depth2_2">
-                            <ul class="submenu_list">
-                            <li><a href="/board/list">JICA NEWS</a></li>
-                            <li><a href="#">NEWSLETTERS</a></li>
-                            <li><a href="#">COVID-19 UPDATES</a></li>
-                            </ul>
-                        </div>
-                     </li>
-                        
-                    <li><a href="/board/list" class="openAll3"><b>ABOUT</b></a>
-				        <div class="gnb_depth gnb_depth2_3">
-                            <ul class="submenu_list">
-                            	<li><a href="#">ABOUT JICA</a></li>
-                                <li><a href="#">WORK WITH US</a></li>
-                               	<li><a href="#">CONTACT US</a></li>
-                            </ul>
-                        </div>
-					</li>
-				</ul>
-                </nav>
-					
-				<!-- <nav>
-				<ul class="gnb clear">
-					<li><a href="javascript:;" class="openAll1">스프링정보</a>
-
-                        <div class="gnb_depth gnb_depth2_1">
-                            <ul class="submenu_list">
-                                <li><a href="javascript:;">국내</a></li>
-                                <li><a href="javascript:;">해외</a></li>
-                            </ul>
-                        </div>
-					</li>
 					<li><a href="javascript:;" class="openAll2">고객센터</a>
 				        <div class="gnb_depth gnb_depth2_2">
                             <ul class="submenu_list">
-                                <li><a href="javascript:;">공지사항</a></li>
-                                <li><a href="javascript:;">문의하기</a></li>
+                                <li><a href="<c:url value='/tiles/board/list.do?bbsId=BBSMSTR_AAAAAAAAAAAA'/>">공지사항</a></li>
+                                <li><a href="javascript:;">갤러리</a></li>
                             </ul>
                         </div>
 					</li>
-					<li><a href="javascript:;" class="openAll3">상품투어</a>
-                        <div class="gnb_depth gnb_depth2_3">
-                            <ul class="submenu_list">
-                                <li><a href="javascript:;">프로그램 소개</a></li>
-                                <li><a href="javascript:;">스프링자료</a></li>
-                            </ul>
-                        </div>
-					</li>
-					<li><a href="javascript:;" class="openAll4">티켓/가이드</a>
-                        <div class="gnb_depth gnb_depth2_4">
-                            <ul class="submenu_list">
-                                <li><a href="javascript:;">항공</a></li>
-                                <li><a href="javascript:;">호텔</a></li>
-                            </ul>
-                        </div>
-					</li>
+					
 				</ul>
-                </nav> -->
+                </nav>
 				<p class="closePop"><a href="javascript:;">닫기</a></p>
 			</div>
 			<!-- //header_cont -->
