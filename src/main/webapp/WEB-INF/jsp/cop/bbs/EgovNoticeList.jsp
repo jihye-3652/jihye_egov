@@ -205,13 +205,13 @@
 				                    <c:out value="${result.nttSj}" />
 				                </c:when>
 				                <c:otherwise>
-				                   <input type="hidden" name="bbsId" value="<c:out value='${result.bbsId}'/>" />
-				                   <input type="hidden" name="nttId"  value="<c:out value="${result.nttId}"/>" />
-				                   <input type="hidden" name="bbsTyCode" value="<c:out value='${brdMstrVO.bbsTyCode}'/>" />
-				                   <input type="hidden" name="bbsAttrbCode" value="<c:out value='${brdMstrVO.bbsAttrbCode}'/>" />
-				                   <input type="hidden" name="authFlag" value="<c:out value='${brdMstrVO.authFlag}'/>" />
-				                   <input name="pageIndex" type="hidden" value="<c:out value='${searchVO.pageIndex}'/>"/>
-				                   <span class="link"><input type="submit" style="width:320px;border:solid 0px black;text-align:left;" value="<c:out value="${result.nttSj}"/>" ></span>
+				                        <input type="hidden" name="bbsId" value="<c:out value='${result.bbsId}'/>" />
+				                        <input type="hidden" name="nttId"  value="<c:out value="${result.nttId}"/>" />
+				                        <input type="hidden" name="bbsTyCode" value="<c:out value='${brdMstrVO.bbsTyCode}'/>" />
+				                        <input type="hidden" name="bbsAttrbCode" value="<c:out value='${brdMstrVO.bbsAttrbCode}'/>" />
+				                        <input type="hidden" name="authFlag" value="<c:out value='${brdMstrVO.authFlag}'/>" />
+				                        <input name="pageIndex" type="hidden" value="<c:out value='${searchVO.pageIndex}'/>"/>
+				                        <span class="link"><input type="submit" style="width:320px;border:solid 0px black;text-align:left;" value="<c:out value="${result.nttSj}"/>" ></span>
 				                </c:otherwise>
 				            </c:choose>
 				            </form>

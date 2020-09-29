@@ -27,16 +27,15 @@ public class MemberController {
 	private AuthDAO authDAO;
 	
 	/**
-	 AdminLTE 관리자관리 삭제POST 한다.
+	 AdminLTE용 관리자관리 삭제POST 한다.
 	*/
 	@RequestMapping(value = "/admin/member/deleteMember.do", method = RequestMethod.POST)
 	public String adminDeleteMember(@RequestParam("EMPLYR_ID") String emplyr_id,Model model) throws Exception {
 		memberService.deleteMember(emplyr_id);
 		return "redirect:/admin/member/selectMember.do";
 	}
-	
 	/**
-	 AdminLTE 관리자관리 입력POST 한다.
+	 AdminLTE용 관리자관리 입력POST 한다.
 	*/
 	@RequestMapping(value = "/admin/member/insertMember.do", method = RequestMethod.POST)
 	public String adminInsertMember(EmployerInfoVO vo,Model model) throws Exception {
@@ -47,7 +46,7 @@ public class MemberController {
 		return "redirect:/admin/member/selectMember.do";
 	}
 	/**
-	 AdminLTE 관리자관리 입력GET 한다.
+	 AdminLTE용 관리자관리 입력GET 한다.
 	*/
 	@RequestMapping(value = "/admin/member/insertMember.do", method = RequestMethod.GET)
 	public String adminInsertMember(Model model) throws Exception {
@@ -55,7 +54,6 @@ public class MemberController {
 		model.addAttribute("authVO", authVO);
 		return "admin/member/insert";
 	}
-	
 	/**
 	 AdminLTE용 관리자관리 수정POST 한다.
 	*/

@@ -8,7 +8,7 @@
     <div class="p-3">
       <h5>Title</h5>
       <p>Sidebar content</p>
-      <a href="<c:url value='/tiles/Logout.do'/>" class="btn btn-primary btn-lg btn-block">로그아웃</a>
+      <a href="<c:url value='/tiles/logout.do'/>" class="btn btn-primary btn-lg btn-block">로그아웃</a>
     </div>
   </aside>
   <!-- /.control-sidebar -->
@@ -36,6 +36,7 @@
 
 <script>
 $(document).ready(function() {
+    //var current = location.search;
     var current = '${bdMstr.bbsId}';
     if(current==''){
     	current = '${boardVO.bbsId}';

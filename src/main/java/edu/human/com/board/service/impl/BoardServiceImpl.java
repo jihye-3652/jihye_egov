@@ -6,10 +6,10 @@ import org.springframework.stereotype.Service;
 
 import edu.human.com.board.service.BoardService;
 
-	@Service
-public class BoardServiceImpl implements BoardService{
-	
-	@Inject 
+@Service
+public class BoardServiceImpl implements BoardService {
+
+	@Inject
 	private BoardDAO boardDAO;
 	
 	@Override
