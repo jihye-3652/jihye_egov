@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<title> 로그인 | 김일국 </title>
+<title> login | Jihyekim</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="stylesheet" href="css/common.css">
 <script src="js/jquery-1.11.3.min.js"></script>
 <script src="js/common.js"></script>  
-<script src="js/jquery.smooth-scroll.min.js"></script> 
+<script src="js/jquery.smooth-scroll.min.js"></script> <!-- 부드러운 스크롤을 위해 필요  -->
 <!--[if lte IE 9]>
     <script src="js/html5shiv.js"></script>
 	<script src="js/placeholders.min.js"></script>
@@ -17,7 +17,7 @@
 
 <body>
 <ul class="skipnavi">
-    <li><a href="#container">본문내용</a></li>
+   
 </ul>
 <!-- wrap -->
 <div id="wrap">
@@ -29,8 +29,8 @@
 			<!-- header_cont -->
 			<div class="header_cont">
 				<ul class="util clear">
-					<li><a href="javascript:;">로그인</a></li>
-					<li><a href="javascript:;">회원가입</a></li>
+					<li><a href="javascript:;">Login</a></li>
+					<li><a href="javascript:;">Join Us</a></li>
 				</ul>		
 				<nav>
 				<ul class="gnb clear">
@@ -74,15 +74,16 @@
 			<!-- //header_cont -->
 		</div>
 	</header>
-	<!-- container -->
+	
+	<!-- container start -->
 	<div id="container">
 		<!-- location_area -->
 		<div class="location_area member">
 			<div class="box_inner">
-				<h2 class="tit_page">스프링 <span class="in">in</span> 자바</h2>
-				<p class="location">MEMBER <span class="path">/</span> 로그인</p>
+				<h2 class="tit_page">스프링 <span class="in">in</span> 자바</h2>  <!-- "span"=작을글자 스타일 -->
+				<p class="location">MEMBER <span class="path">/</span> Login</p>
 				<ul class="page_menu clear">
-					<li><a href="javascript:;" class="on">로그인</a></li>
+					<li><a href="javascript:;" class="on">회원가입</a></li>
 				</ul>
 			</div>
 		</div>	
@@ -93,19 +94,21 @@
 			<!-- appForm -->
 			<form action="#" class="appForm">
 				<fieldset>
-					<legend>로그인</legend>
-					<p class="info_pilsoo pilsoo_item">필수입력</p>
+					<legend>Login</legend>
+					<p class="info_pilsoo pilsoo_item">indicates required</p>
 					<ul class="app_list">
+						
 						<li class="clear">
-							<label for="name_lbl" class="tit_lbl pilsoo_item">아이디</label>
-							<div class="app_content"><input type="text" class="w100p" id="name_lbl" placeholder="아이디를 입력해주세요"/></div>
+							<label for="name_lbl" class="tit_lbl pilsoo_item">USER ID</label>
+							<div class="app_content"><input type="text" class="w100p" id="name_lbl" placeholder="이름을 입력해주세요"/></div>
 						</li>
 						<li class="clear">
-							<label for="pwd_lbl" class="tit_lbl pilsoo_item">암호</label>
-							<div class="app_content"><input type="password" class="w100p" id="pwd_lbl" placeholder="암호를 입력해주세요"/></div>
+							<label for="pwd_lbl" class="tit_lbl pilsoo_item">PW</label>
+							<div class="app_content"><input type="password" class="w100p" id="pwd_lbl" placeholder="비밀번호를 입력해주세요"/></div>
 						</li>
+
 					</ul>
-					<p class="btn_line"><a href="javascript:;" class="btn_baseColor">로그인</a></p>	
+					<p class="btn_line"><a href="javascript:;" class="btn_baseColor">LOGIN</a></p>	
 				</fieldset>
 			</form>
 			<!-- //appForm -->
@@ -114,7 +117,7 @@
 		<!-- //bodytext_area -->
 
 	</div>
-	<!-- //container -->
+	<!-- .//container -->
 
 	<footer>
 		<div class="foot_area box_inner">
@@ -139,7 +142,6 @@
 
 </div>
 <!-- //wrap -->
-
 <h2 class="hdd">빠른 링크 : 전화 문의, 카카오톡, 오시는 길, 꼭대기로</h2>
 <div class="quick_area">
 	<ul class="quick_list">
