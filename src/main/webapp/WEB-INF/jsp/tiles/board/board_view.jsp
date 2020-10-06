@@ -52,9 +52,9 @@ function fn_egov_moveUpdt_notice() {
 		<div class="location_area customer">
 			<div class="box_inner">
 				<h2 class="tit_page">스프링 <span class="in">in</span> 자바</h2>
-				<p class="location">고객센터 <span class="path">/</span> ${brdMstrVO.bbsNm}</p>
+				<p class="location">고객센터 <span class="path">/</span> ${bdMstr.bbsNm}</p>
 				<ul class="page_menu clear">
-					<li><a href="#" class="on">${brdMstrVO.bbsNm}</a></li>
+					<li><a href="#" class="on">${bdMstr.bbsNm}</a></li>
 					<li><a href="#">문의하기</a></li>
 				</ul>
 			</div>
