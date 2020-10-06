@@ -65,39 +65,36 @@
             </div><!--//swiper-container-->
         </div><!--//main_rolling_mobile -->
 	
-		<!-- about_area -->
-		<div class="about_area">
-			<h2>ABOUT JICA <b>TOP3 ARTICLES</b></h2>
+<!-- about_area -->
+	<div class="about_area">
+			<h2><a href="<c:url value='/tiles/board/list.do?bbsId=BBSMSTR_BBBBBBBBBBBB'/>">NEW ARTICLES <b>TOP 3</b></a></h2>
 			<div class="about_box">
 				<ul class="place_list box_inner clear">
-				<c:forEach items="${boardList}" var="boardVO" varStatus="status">
-						<c:if test="${status.count <= 3}">
-						<li style="overflow:hidden"><a href="/board/view?bno=${boardVO.bno}&page=1">
-								<!-- 첨부파일이 있을때 if -->
-								<c:if test="${boardVO.files[0] != null }">
-									<c:set var="extName" value="${fn:split(boardVO.files[0],'.')}" />
-									<c:set var="ext" value="${extName[fn:length(extName)-1]}" />
-									<!-- 첨부파일이 있는데 이미지일때와 이미지가 아닐때 choose -->
-									<c:choose>
-										<c:when test="${fn:containsIgnoreCase(extNameArray, ext)}">
-											<img src="/download?filename=${boardVO.files[0]}" title="첨부파일 이미지" style="width:100%;">
-										</c:when>
-										<c:otherwise>
-											<img class="img_topplace" src="/resources/home/img/marble_pink.jpg" alt="이미지 없음" />
-										</c:otherwise>
-									</c:choose>
-								</c:if>
-								<!-- 첨부파일이 없을때 if -->
-								<c:if test="${boardVO.files[0] == null }">
-									<img class="img_topplace" src="/resources/home/img/marble_pink.jpg" alt="이미지 없음" />
-								</c:if>
-								<h3>${boardVO.title}</h3>
-								<p class="txt"><c:out value="${boardVO.content}" escapeXml="false" /></p>
-								<span class="view">VIEW</span></a>
-							</a>
-						</li>
-						</c:if>
+				<c:forEach var="result" items="${galList}" varStatus="status">
+				<c:if test="${status.count <= 3}">
+					<li><a href="<c:url value='/tiles/board/view.do?bbsId=BBSMSTR_BBBBBBBBBBBB&nttId=${result.nttId}'/>">
+							<img class="img_topplace" src="<c:url value='/'/>home/img/marble_pink.jpg" alt="article1" />
+							<h3>${result.nttSj}</h3>
+							<p class="txt">${result.nttCn}</p>
+							<span class="view">VIEW</span>
+						</a>
+					</li>
+				</c:if>
 				</c:forEach>
+					
+					
+					<%-- <li><a href="#" onclick="$('.popup_base').css('height',$(document).height());$('.space_pop').show();">
+							<img class="img_topplace" src="<c:url value='/'/>home/img/marble_pink.jpg" alt="article2" />
+							<h3>OOOO OOOOO</h3>
+							<p class="txt">OOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOO.</p>
+							<span class="view">VIEW</span></a>
+					</li>
+					<li><a href="#" onclick="$('.popup_base').css('height',$(document).height());$('.program_pop').show();">
+							<img class="img_topplace" src="<c:url value='/'/>home/img/marble_pink.jpg" alt="article3" />
+							<h3>OOOO OOOOO</h3>
+							<p class="txt">OOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOOOOOO OOOOO</p>
+							<span class="view">VIEW</span></a>
+					</li> --%>
 				</ul>
 			</div>
 		</div>
@@ -108,16 +105,21 @@
 			<div class="appbbs_box box_inner clear">
 				<h2 class="hdd">상담과 최근게시물</h2>
 				<p class="app_line">
-					<a href="/resources/home/javascript:;">카카오톡 1:1 상담</a>
-					<a href="/resources/home/javascript:;">전화 상담 신청</a>
+					<a href="javascript:;">카카오톡 1:1 상담</a>
+					<a href="javascript:;">전화 상담 신청</a>
+					<!-- <a href="/resources/home/javascript:;">카카오톡 1:1 상담</a> -->
 				</p>
 				<div class="bbs_line">
-					<h3><a href="/board/list">NOTICE</a></h3>
+					<h3><a href="<c:url value='/tiles/board/list.do?bbsId=BBSMSTR_AAAAAAAAAAAA'/>">NOTICE</a></h3>
 					<ul class="notice_recent">
-					 <c:forEach items="${boardList}" var="boardVO" varStatus="status">
+					 <c:forEach var="result" items="${notiList}" varStatus="status">
+					 <li><a href="<c:url value='/tiles/board/view.do?bbsId=BBSMSTR_AAAAAAAAAAAA&nttId=${result.nttId}'/>">${result.nttSj}</a></li>
+					 </c:forEach>
+					 
+					 <%-- <c:forEach items="${boardList}" var="boardVO" varStatus="status">
 						<li><a href="/board/view?bno=${boardVO.bno}">${boardVO.title}</a></li>
-						
-					</c:forEach>
+						<li><a href="/board/view?bno=${boardVO.bno}">${boardVO.title}</a></li>
+					</c:forEach> --%>
 					</ul>
 				</div>
 			</div>
