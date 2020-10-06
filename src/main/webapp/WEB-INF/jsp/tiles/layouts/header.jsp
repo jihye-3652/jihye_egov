@@ -38,7 +38,7 @@
 				        <div class="gnb_depth gnb_depth2_2">
                             <ul class="submenu_list">
                                 <li><a href="<c:url value='/tiles/board/list.do?bbsId=BBSMSTR_AAAAAAAAAAAA'/>">공지사항</a></li>
-                                <li><a href="javascript:;">갤러리</a></li>
+                                <li><a href="<c:url value='/tiles/board/list.do?bbsId=BBSMSTR_BBBBBBBBBBBB'/>">겔러리</a></li>
                             </ul>
                         </div>
 					</li>

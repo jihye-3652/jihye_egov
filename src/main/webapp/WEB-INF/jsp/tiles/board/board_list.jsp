@@ -129,7 +129,7 @@
 	            </ul>
 	        </div>
 			<p class="btn_line">
-				<a href="<c:url value='/admin/board/addBoard.do'/>?bbsId=<c:out value="${boardVO.bbsId}"/>" class="btn_baseColor">등록</a>
+				<a href="<c:url value='/tiles/board/insertBoardForm.do'/>?bbsId=<c:out value="${boardVO.bbsId}"/>" class="btn_baseColor">등록</a>
 			</p>
 		</div>
 		<!-- //bodytext_area -->
