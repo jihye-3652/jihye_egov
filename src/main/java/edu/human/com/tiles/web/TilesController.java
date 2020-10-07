@@ -1,5 +1,9 @@
 package edu.human.com.tiles.web;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.List;
 import java.util.Map;
 
@@ -14,6 +18,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -64,6 +69,9 @@ public class TilesController {
 	@Resource(name = "EgovFileMngUtil")
     private EgovFileMngUtil fileUtil;
 	
+	@Resource(name = "EgovFileMngService")
+    private EgovFileMngService fileService;
+	
 	/**
      * XSS 방지 처리.
      *
@@ -95,6 +103,87 @@ public class TilesController {
         return ret;
     }
 	
+    /*
+     * 타일즈를 이용한 최근 겔러리 게시판 미리보기 이미지 출력 구현
+     */
+    @SuppressWarnings("resource")
+	@RequestMapping(value="/tiles/board/previewImage.do")
+    public void previewImage(HttpServletResponse response
+    		, @RequestParam("atchFileId") String atchFileId) throws Exception {
+
+    	FileVO vo = new FileVO();
+
+		vo.setAtchFileId(atchFileId);
+		FileVO fvo = null;//fvo 클래스 변수 초기화
+		for(int cnt=0; cnt<5; cnt++) {
+			vo.setFileSn(Integer.toString(cnt));
+			fvo = fileService.selectFileInf(vo);
+			if(fvo != null) {
+				break;// for 반복문 빠져나가기
+			}
+		}
+		//String fileLoaction = fvo.getFileStreCours() + fvo.getStreFileNm();
+		File file = new File(fvo.getFileStreCours(), fvo.getStreFileNm());
+		FileInputStream fis = null; 
+		new FileInputStream(file);
+
+		BufferedInputStream in = null;
+		ByteArrayOutputStream bStream = null;
+		try{
+			fis = new FileInputStream(file);
+			in = new BufferedInputStream(fis);
+			bStream = new ByteArrayOutputStream();
+			int imgByte;
+			while ((imgByte = in.read()) != -1) {
+			    bStream.write(imgByte);
+			}
+
+			String type = "";
+
+			if (fvo.getFileExtsn() != null && !"".equals(fvo.getFileExtsn())) {
+			    if ("jpg".equals(fvo.getFileExtsn().toLowerCase())) {
+				type = "image/jpeg";
+			    } else {
+				type = "image/" + fvo.getFileExtsn().toLowerCase();
+			    }
+			    type = "image/" + fvo.getFileExtsn().toLowerCase();
+
+			} else {
+			}
+
+			response.setHeader("Content-Type", type);
+			response.setContentLength(bStream.size());
+
+			bStream.writeTo(response.getOutputStream());
+
+			response.getOutputStream().flush();
+			response.getOutputStream().close();
+
+
+		}catch(Exception e){
+		}finally{
+			if (bStream != null) {
+				try {
+					bStream.close();
+				} catch (Exception est) {
+				}
+			}
+			if (in != null) {
+				try {
+					in.close();
+				} catch (Exception ei) {
+				}
+			}
+			if (fis != null) {
+				try {
+					fis.close();
+				} catch (Exception efis) {
+				}
+			}
+		}
+    	
+    }
+    
     /*
 	 * 타일즈를 이용한 게시판 등록 폼으로 이동
 	 */

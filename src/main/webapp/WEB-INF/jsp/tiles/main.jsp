@@ -65,15 +65,20 @@
             </div><!--//swiper-container-->
         </div><!--//main_rolling_mobile -->
 	
-<!-- about_area -->
-	<div class="about_area">
-			<h2><a href="<c:url value='/tiles/board/list.do?bbsId=BBSMSTR_BBBBBBBBBBBB'/>">NEW ARTICLES <b>TOP 3</b></a></h2>
+		<!-- about_area -->
+		<div class="about_area">
+			<h2><a href="<c:url value='/tiles/board/list.do?bbsId=BBSMSTR_BBBBBBBBBBBB'/>">최신 사진 겔러리 <b>TOP 3</b></a></h2>
 			<div class="about_box">
 				<ul class="place_list box_inner clear">
 				<c:forEach var="result" items="${galList}" varStatus="status">
 				<c:if test="${status.count <= 3}">
 					<li><a href="<c:url value='/tiles/board/view.do?bbsId=BBSMSTR_BBBBBBBBBBBB&nttId=${result.nttId}'/>">
-							<img class="img_topplace" src="<c:url value='/'/>home/img/marble_pink.jpg" alt="article1" />
+							<c:if test="${empty result.atchFileId}">
+							<img class="img_topplace" src="<c:url value='/'/>home/img/marble_pink.jpg" alt="빈 이미지 입니다." />
+							</c:if>
+							<c:if test="${not empty result.atchFileId}">
+							<img src="<c:url value='/tiles/board/previewImage.do'/>?atchFileId=${result.atchFileId}" alt="첨부이미지 입니다." style="width:100%; height:auto;" />
+			                </c:if>
 							<h3>${result.nttSj}</h3>
 							<p class="txt">${result.nttCn}</p>
 							<span class="view">VIEW</span>
