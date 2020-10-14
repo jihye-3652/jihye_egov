@@ -115,7 +115,7 @@
 		              <li class="nav-item">
 		                <a href="<c:url value='/'/>admin/board/selectBoard.do?bbsId=BBSMSTR_BBBBBBBBBBBB" class="nav-link">
 		                  <i class="far fa-circle nav-icon"></i>
-		                  <p>겔러리</p>
+		                  <p>갤러리</p>
 		                </a>
 		              </li>
 	            </ul>

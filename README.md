@@ -962,7 +962,7 @@ git push -u origin master
   EgovBBSManageController.java > > selectBoardArticle.do 매핑값 복사 196라인 참조
 - 기능별로 나눠져 있는 방식을 따라서 edu.human.com.board.web 패키지에 추가.
 - view.jsp 디자인 확인: 컨트롤러에서 @RequestMapping 경로 추가...
-- 카드 클래스 : card 웹 프로그램에서 최초로 사용하던곳 쇼핑몰에서 상품을 겔러리 형식으로
+- 카드 클래스 : card 웹 프로그램에서 최초로 사용하던곳 쇼핑몰에서 상품을 갤러리 형식으로
                 표시할때 사용하던 방식.(카드방식)
 - 이클립스 작업은 여기까지 하시고, ppt 제안서 작성을 진행 하시기 바랍니다.
 - 게시판 상세보기 화면 만들고, 프로그램 입히기 작업진행 중...

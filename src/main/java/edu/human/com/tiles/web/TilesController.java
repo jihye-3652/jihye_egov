@@ -104,7 +104,7 @@ public class TilesController {
     }
 	
     /*
-     * 타일즈를 이용한 최근 겔러리 게시판 미리보기 이미지 출력 구현
+     * 타일즈를 이용한 최근 갤러리 게시판 미리보기 이미지 출력 구현
      */
     @SuppressWarnings("resource")
 	@RequestMapping(value="/tiles/board/previewImage.do")

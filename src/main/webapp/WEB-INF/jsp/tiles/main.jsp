@@ -49,13 +49,13 @@
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <a href="/resources/home/javascript:;"><img src="/home/img/marble1.jpg" alt="OOOO OOOOO 믿을 수 있는 스프링정보, 스프링... OOOO OOOOO?" /></a>
+                        <a href="/resources/home/javascript:;"><img src="/home/img/marble1.jpg" alt="메인 배너1" /></a>
                     </div>
                     <div class="swiper-slide">
-                        <a href="/resources/home/javascript:;"><img src="/home/img/marble1.jpg" alt="OOOO OOOOO 믿을 수 있는 스프링정보, 스프링... OOOO OOOOO?" /></a>
+                        <a href="/resources/home/javascript:;"><img src="/home/img/marble1.jpg" alt="메인 배너2" /></a>
                     </div>
                     <div class="swiper-slide">
-                        <a href="/resources/home/javascript:;"><img src="/home/img/marble1.jpg" alt="OOOO OOOOO 믿을 수 있는 스프링정보, 스프링... OOOO OOOOO?" /></a>
+                        <a href="/resources/home/javascript:;"><img src="/home/img/marble1.jpg" alt="메인 배너3" /></a>
                     </div>
                 </div>						
                 <div class="swiper-pagination"></div>
@@ -67,7 +67,7 @@
 	
 		<!-- about_area -->
 		<div class="about_area">
-			<h2><a href="<c:url value='/tiles/board/list.do?bbsId=BBSMSTR_BBBBBBBBBBBB'/>">최신 사진 겔러리 <b>TOP 3</b></a></h2>
+			<h2><a href="<c:url value='/tiles/board/list.do?bbsId=BBSMSTR_BBBBBBBBBBBB'/>">최신 사진 갤러리 <b>TOP 3</b></a></h2>
 			<div class="about_box">
 				<ul class="place_list box_inner clear">
 				<c:forEach var="result" items="${galList}" varStatus="status">
